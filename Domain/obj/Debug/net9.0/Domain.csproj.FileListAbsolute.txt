@@ -1,0 +1,12 @@
+D:\Github\CleanArchitectureCore\Domain\bin\Debug\net9.0\Domain.deps.json
+D:\Github\CleanArchitectureCore\Domain\bin\Debug\net9.0\Domain.dll
+D:\Github\CleanArchitectureCore\Domain\bin\Debug\net9.0\Domain.pdb
+D:\Github\CleanArchitectureCore\Domain\obj\Debug\net9.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github\CleanArchitectureCore\Domain\obj\Debug\net9.0\Domain.AssemblyInfoInputs.cache
+D:\Github\CleanArchitectureCore\Domain\obj\Debug\net9.0\Domain.AssemblyInfo.cs
+D:\Github\CleanArchitectureCore\Domain\obj\Debug\net9.0\Domain.csproj.CoreCompileInputs.cache
+D:\Github\CleanArchitectureCore\Domain\obj\Debug\net9.0\Domain.sourcelink.json
+D:\Github\CleanArchitectureCore\Domain\obj\Debug\net9.0\Domain.dll
+D:\Github\CleanArchitectureCore\Domain\obj\Debug\net9.0\refint\Domain.dll
+D:\Github\CleanArchitectureCore\Domain\obj\Debug\net9.0\Domain.pdb
+D:\Github\CleanArchitectureCore\Domain\obj\Debug\net9.0\ref\Domain.dll
