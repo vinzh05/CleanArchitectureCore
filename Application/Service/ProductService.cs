@@ -115,7 +115,6 @@ namespace Application.Service
                     return Result<bool>.FailureResult("Không tìm thấy sản phẩm cần xóa.", statusCode: HttpStatusCode.NotFound);
                 }
 
-                product.MarkAsDeleted();
                 _unitOfWork.Products.Remove(product);
                 var success = await _unitOfWork.CommitTransactionAsync();
                 if (!success)

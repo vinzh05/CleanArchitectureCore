@@ -23,18 +23,12 @@ namespace Domain.Entities.Identity
         public void UpdateInfo(string name, string description, decimal price)
         {
             ValidateAndSetProperties(name, description, price, Stock);
-            AddDomainEvent(new ProductUpdatedDomainEvent(Id, name, price));
         }
 
         public void UpdateStock(int stock)
         {
             if (stock < 0) throw new InvalidOperationException("Stock cannot be negative.");
             Stock = stock;
-        }
-
-        public void MarkAsDeleted()
-        {
-            AddDomainEvent(new ProductDeletedDomainEvent(Id));
         }
 
         private void ValidateAndSetProperties(string name, string description, decimal price, int stock)

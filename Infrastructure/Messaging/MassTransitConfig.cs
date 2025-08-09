@@ -1,87 +1,81 @@
-﻿using Infrastructure.Consumers.Common;
-using Infrastructure.Consumers.Product;
-using Infrastructure.Contracts.Product;
-using Infrastructure.IntegrationEvents.Product;
-using MassTransit;
+﻿using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RabbitMQ.Client;
 using System;
-using System.Threading.Tasks;
 
-namespace Infrastructure.Messaging
+namespace Ecom.Infrastructure.Messaging
 {
     public static class MassTransitConfig
     {
-        public static IServiceCollection AddMassTransitWithRabbitMq(this IServiceCollection services, IConfiguration config)
+        // Publisher registration (WebApi) - only ensures bus exists and IPublishEndpoint available
+        public static void AddMassTransitPublisher(IServiceCollection services, IConfiguration cfg)
         {
+            var mqHost = cfg.GetValue<string>("RabbitMq:Host", "rabbitmq");
+            var mqUser = cfg.GetValue<string>("RabbitMq:Username", "guest");
+            var mqPass = cfg.GetValue<string>("RabbitMq:Password", "guest");
+
             services.AddMassTransit(x =>
             {
-                x.SetKebabCaseEndpointNameFormatter();
-
-                // Đăng ký các consumer
-                x.AddConsumersFromNamespaceContaining<ProductCreatedConsumer>();
-                x.AddConsumersFromNamespaceContaining<ProductUpdatedConsumer>();
-                x.AddConsumersFromNamespaceContaining<ProductDeletedConsumer>();
-
-                // Cấu hình RabbitMQ
-                x.UsingRabbitMq((context, cfg) =>
+                x.UsingRabbitMq((context, rcfg) =>
                 {
-                    cfg.Host(config["RabbitMq:Host"] ?? "rabbitmq", h =>
+                    rcfg.Host(mqHost, h =>
                     {
-                        h.Username(config["RabbitMq:Username"] ?? "guest");
-                        h.Password(config["RabbitMq:Password"] ?? "guest");
+                        h.Username(mqUser);
+                        h.Password(mqPass);
                     });
 
-                    //// Fanout Exchange cho Product Created
-                    //cfg.ConfigureFanoutEndpoint<ProductCreatedIntegrationEvent>("product-created-fanout");
-
-                    // Topic Exchange cho Product Updated
-                    cfg.ConfigureTopicEndpoint<ProductUpdatedIntegrationEvent>("product-updated-topic", "product.#");
-
-                    //// Direct Exchange cho Product Deleted
-                    //cfg.ConfigureDirectEndpoint<ProductDeletedIntegrationEvent>("product-deleted-direct", "product.deleted");
+                    // Do not define queues here for publisher
                 });
-            });
-
-            return services;
-        }
-
-        private static void ConfigureFanoutEndpoint<T>(this IRabbitMqBusFactoryConfigurator cfg, string exchangeName) where T : class
-        {
-            cfg.ReceiveEndpoint(exchangeName, e =>
-            {
-                e.Bind(exchangeName, x =>
-                {
-                    x.ExchangeType = ExchangeType.Fanout;
-                });
-                e.Consumer<TConsumer<T>>();
             });
         }
 
-        private static void ConfigureTopicEndpoint<T>(this IRabbitMqBusFactoryConfigurator cfg, string exchangeName, string routingKeyPattern) where T : class
+        // Consumer registration (Worker) - will create endpoints from config and allow configurePerEndpoint to attach consumers
+        public static void AddMassTransitConsumers(IServiceCollection services, IConfiguration cfg, Action<IBusRegistrationContext, IRabbitMqReceiveEndpointConfigurator, string>? configurePerEndpoint = null)
         {
-            cfg.ReceiveEndpoint(exchangeName, e =>
-            {
-                e.Bind(exchangeName, x =>
-                {
-                    x.ExchangeType = ExchangeType.Topic;
-                    x.RoutingKey = routingKeyPattern;
-                });
-                e.Consumer<TConsumer<T>>();
-            });
-        }
+            var mqHost = cfg.GetValue<string>("RabbitMq:Host", "rabbitmq");
+            var mqUser = cfg.GetValue<string>("RabbitMq:Username", "guest");
+            var mqPass = cfg.GetValue<string>("RabbitMq:Password", "guest");
+            var prefetch = cfg.GetValue<ushort>("RabbitMq:PrefetchCount", 16);
+            var retryCount = cfg.GetValue<int>("RabbitMq:Retry:RetryCount", 5);
+            var retryInterval = cfg.GetValue<int>("RabbitMq:Retry:IntervalSeconds", 5);
 
-        private static void ConfigureDirectEndpoint<T>(this IRabbitMqBusFactoryConfigurator cfg, string exchangeName, string routingKey) where T : class
-        {
-            cfg.ReceiveEndpoint(exchangeName, e =>
+            services.AddMassTransit(x =>
             {
-                e.Bind(exchangeName, x =>
+                // Consumers need to be added by caller: x.AddConsumers(typeof(YourConsumerAssembly).Assembly)
+                x.UsingRabbitMq((context, rcfg) =>
                 {
-                    x.ExchangeType = ExchangeType.Direct;
-                    x.RoutingKey = routingKey;
+                    rcfg.Host(mqHost, h =>
+                    {
+                        h.Username(mqUser);
+                        h.Password(mqPass);
+                    });
+
+                    var exchanges = cfg.GetSection("RabbitMq:Exchanges").GetChildren();
+                    foreach (var ex in exchanges)
+                    {
+                        var exchangeName = ex.GetValue<string>("Name", ex.Key.ToLowerInvariant());
+                        var exchangeType = ex.GetValue<string>("Type", ExchangeType.Topic);
+                        var queueName = ex.GetValue<string>("Queue", $"{exchangeName}.queue");
+                        var routingKey = ex.GetValue<string>("RoutingKey", "");
+
+                        rcfg.ReceiveEndpoint(queueName, e =>
+                        {
+                            e.ConfigureConsumeTopology = false;
+                            e.PrefetchCount = prefetch;
+                            e.UseMessageRetry(r => r.Interval(retryCount, TimeSpan.FromSeconds(retryInterval)));
+
+                            e.Bind(exchangeName, b =>
+                            {
+                                b.ExchangeType = exchangeType;
+                                if (!string.IsNullOrWhiteSpace(routingKey))
+                                    b.RoutingKey = routingKey;
+                            });
+
+                            configurePerEndpoint?.Invoke(context, e, ex.Key);
+                        });
+                    }
                 });
-                e.Consumer<TConsumer<T>>();
             });
         }
     }

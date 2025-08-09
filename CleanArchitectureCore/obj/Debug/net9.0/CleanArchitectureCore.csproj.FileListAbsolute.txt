@@ -70,3 +70,11 @@ D:\Github\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\refint\Cl
 D:\Github\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\CleanArchitectureCore.pdb
 D:\Github\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\CleanArchitectureCore.genruntimeconfig.cache
 D:\Github\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\ref\CleanArchitectureCore.dll
+D:\Github\CleanArchitectureCore\CleanArchitectureCore\bin\Debug\net9.0\Microsoft.Extensions.Configuration.dll
+D:\Github\CleanArchitectureCore\CleanArchitectureCore\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\Github\CleanArchitectureCore\CleanArchitectureCore\bin\Debug\net9.0\Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+D:\Github\CleanArchitectureCore\CleanArchitectureCore\bin\Debug\net9.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Github\CleanArchitectureCore\CleanArchitectureCore\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Json.dll
+D:\Github\CleanArchitectureCore\CleanArchitectureCore\bin\Debug\net9.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Github\CleanArchitectureCore\CleanArchitectureCore\bin\Debug\net9.0\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Github\CleanArchitectureCore\CleanArchitectureCore\bin\Debug\net9.0\Microsoft.Extensions.FileSystemGlobbing.dll

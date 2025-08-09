@@ -1,4 +1,5 @@
-﻿using Infrastructure.DI;
+﻿using Ecom.Infrastructure.DI;
+using Infrastructure.DI;
 using Infrastructure.Search;
 using System.Reflection;
 

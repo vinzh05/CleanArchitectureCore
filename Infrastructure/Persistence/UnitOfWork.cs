@@ -5,7 +5,6 @@ using Domain.Entities.Identity;
 using Infrastructure.Persistence.DatabaseContext;
 using Infrastructure.Persistence.Repositories;
 using Infrastructure.Persistence.Repositories.Common;
-using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
@@ -18,11 +17,13 @@ namespace Ecom.Infrastructure.Persistence
     {
         private readonly ApplicationDbContext _context;
         private IDbContextTransaction? _tx;
+        private readonly JsonSerializerOptions _jsonOptions;
         private readonly ConcurrentDictionary<Type, object> _repos = new();
 
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
+            _jsonOptions = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
             Products = new ProductRepository(_context);
             Orders = new OrderRepository(_context);
         }
@@ -39,12 +40,13 @@ namespace Ecom.Infrastructure.Persistence
             _tx = await _context.Database.BeginTransactionAsync();
         }
 
-        // Commit: Save changes, create outbox entries from domain events, commit transaction
         public async Task<bool> CommitTransactionAsync()
         {
             try
             {
-                // Collect domain events BEFORE saving, because domain events may have entity Ids pre-generated
+                if (_tx == null) { _tx = await _context.Database.BeginTransactionAsync(); }
+
+                // gather domain events
                 var domainEntities = _context.ChangeTracker
                     .Entries()
                     .Where(e => e.Entity is BaseEntity)
@@ -52,36 +54,29 @@ namespace Ecom.Infrastructure.Persistence
                     .Where(e => e != null)
                     .ToList();
 
-                var domainEvents = domainEntities.SelectMany(d => d!.DomainEvents).ToList();
+                var domainEvents = domainEntities.SelectMany(e => e!.DomainEvents).ToList();
 
-                // Map each domain event to outbox message
+                // Serialize domain events to Outbox (you may prefer mapping to IntegrationEvent here)
                 foreach (var evt in domainEvents)
                 {
-                    var typeName = evt.GetType().FullName!;
-                    var payload = JsonSerializer.Serialize(evt, evt.GetType(), new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
-                    var outbox = new OutboxMessage
-                    {
-                        Type = typeName,
-                        Content = payload,
-                        OccurredOn = DateTimeOffset.UtcNow
-                    };
+                    var typeName = evt.GetType().AssemblyQualifiedName ?? evt.GetType().FullName!;
+                    var payload = JsonSerializer.Serialize(evt, evt.GetType(), _jsonOptions);
+                    var outbox = new OutboxMessage { Type = typeName, Content = payload, OccurredOn = DateTimeOffset.UtcNow };
                     await _context.OutboxMessages.AddAsync(outbox);
                 }
 
-                // Persist everything (entities + outbox) in same transaction
                 await _context.SaveChangesAsync();
 
-                if (_tx != null)
-                    await _tx.CommitAsync();
+                await _tx.CommitAsync();
 
                 // clear domain events
-                foreach (var ent in domainEntities) ent!.ClearDomainEvents();
-
+                foreach (var e in domainEntities) e!.ClearDomainEvents();
                 return true;
             }
             catch
             {
                 if (_tx != null) await _tx.RollbackAsync();
+                _context.ChangeTracker.Clear();
                 return false;
             }
             finally
@@ -92,10 +87,25 @@ namespace Ecom.Infrastructure.Persistence
 
         public async Task<bool> RollbackTransactionAsync()
         {
-            if (_tx == null) return false;
-            try { await _tx.RollbackAsync(); return true; }
+            if (_tx == null) { _context.ChangeTracker.Clear(); return false; }
+            try
+            {
+                await _tx.RollbackAsync();
+                await _tx.DisposeAsync();
+                _tx = null;
+                _context.ChangeTracker.Clear();
+                return true;
+            }
             catch { return false; }
-            finally { await _tx.DisposeAsync(); _tx = null; }
+        }
+
+        public async Task AddIntegrationEventToOutboxAsync(object integrationEvent)
+        {
+            if (integrationEvent == null) throw new ArgumentNullException(nameof(integrationEvent));
+            var typeName = integrationEvent.GetType().AssemblyQualifiedName ?? integrationEvent.GetType().FullName!;
+            var payload = JsonSerializer.Serialize(integrationEvent, integrationEvent.GetType(), _jsonOptions);
+            var outbox = new OutboxMessage { Type = typeName, Content = payload, OccurredOn = DateTimeOffset.UtcNow };
+            await _context.OutboxMessages.AddAsync(outbox);
         }
 
         public async Task<int> SaveChangesAsync() => await _context.SaveChangesAsync();

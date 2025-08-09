@@ -19,6 +19,7 @@ namespace Application.Abstractions.Common
         Task BeginTransactionAsync();
         Task<bool> CommitTransactionAsync();
         Task<bool> RollbackTransactionAsync();
+        Task AddIntegrationEventToOutboxAsync(object integrationEvent);
 
         // Save changes
         /// <summary>
