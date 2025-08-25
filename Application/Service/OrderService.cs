@@ -1,6 +1,6 @@
 ﻿using Application.Abstractions;
 using Application.Abstractions.Common;
-using Application.Common.Interface;
+using Application.Abstractions.Service;
 using Domain.Entities;
 using Domain.Entities.Identity;
 using Shared.Common;

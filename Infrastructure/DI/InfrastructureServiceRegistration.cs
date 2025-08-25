@@ -1,5 +1,5 @@
-﻿using Application.Abstractions;
-using Application.Abstractions.Common;
+﻿using Application.Abstractions.Common;
+using Application.Abstractions.Repositories;
 using Ecom.Infrastructure.Messaging;
 using Ecom.Infrastructure.Outbox;
 using Ecom.Infrastructure.Persistence;
@@ -43,7 +43,7 @@ namespace Ecom.Infrastructure.DI
 
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            services.AddScoped(typeof(Application.Abstractions.Common.IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(Application.Abstractions.Repositories.Common.IRepository<>), typeof(Repository<>));
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Application.Abstractions.Repositories;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,32 +12,76 @@ namespace Infrastructure.DI
     public static class ServiceRegistrationExtensions
     {
         /// <summary>
-        /// Tự động đăng ký các service và repository dựa trên quy ước đặt tên.
+        /// Đăng ký tự động Service và Repository dựa theo convention.
         /// </summary>
-        /// <param name="services">Đối tượng IServiceCollection.</param>
-        /// <returns>Đối tượng IServiceCollection đã được cập nhật.</returns>
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            // Lấy assembly chứa các interfaces của Application Layer
-            var applicationAssembly = typeof(Application.Abstractions.IOrderRepository).Assembly;
+            // Định nghĩa các namespace chứa interface
+            const string serviceInterfaceNamespace = "Application.Abstractions.Services";
+            const string repositoryInterfaceNamespace = "Application.Abstractions.Repositories";
 
-            // Lấy assembly chứa các implementation của Application Layer
-            var implementationAssembly = Assembly.GetExecutingAssembly();
+            // Định nghĩa các namespace chứa implementation
+            const string serviceImplNamespace = "Application.Service";
+            const string repositoryImplNamespace = "Infrastructure.Persistence.Repositories";
 
-            // Tìm và đăng ký các service có interface kết thúc bằng "Service"
-            var serviceInterfaces = applicationAssembly.GetTypes()
-                .Where(t => t.IsInterface && t.Name.EndsWith("Service"));
+            // Lấy tất cả các assembly trong AppDomain
+            var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
 
-            foreach (var serviceInterface in serviceInterfaces)
+            // Tìm các interface service
+            var serviceInterfaces = allAssemblies
+                .SelectMany(a => a.GetTypes())
+                .Where(t => t.IsInterface && t.Namespace == serviceInterfaceNamespace && t.Name.EndsWith("Service"))
+                .ToList();
+
+            // Tìm các interface repository
+            var repositoryInterfaces = allAssemblies
+                .SelectMany(a => a.GetTypes())
+                .Where(t => t.IsInterface && t.Namespace == repositoryInterfaceNamespace && t.Name.EndsWith("Repository"))
+                .ToList();
+
+            // Tìm tất cả class implementation từ Application.Service
+            var serviceImplementations = allAssemblies
+                .SelectMany(a => a.GetTypes())
+                .Where(t => t.IsClass && !t.IsAbstract && t.Namespace == serviceImplNamespace)
+                .ToList();
+
+            // Tìm tất cả class implementation từ Infrastructure.Persistence.Repositories
+            var repositoryImplementations = allAssemblies
+                .SelectMany(a => a.GetTypes())
+                .Where(t => t.IsClass && !t.IsAbstract && t.Namespace == repositoryImplNamespace)
+                .ToList();
+
+            // Đăng ký Service
+            foreach (var iface in serviceInterfaces)
             {
-                var implementation = implementationAssembly.GetTypes()
-                    .FirstOrDefault(t => t.IsClass && !t.IsAbstract && t.Name == serviceInterface.Name.Substring(1));
-
-                if (implementation != null)
-                {
-                    services.AddScoped(serviceInterface, implementation);
-                }
+                var impl = serviceImplementations.FirstOrDefault(c => $"I{c.Name}" == iface.Name);
+                if (impl != null)
+                    services.AddScoped(iface, impl);
             }
+
+            // Đăng ký Repository
+            foreach (var iface in repositoryInterfaces)
+            {
+                var impl = repositoryImplementations.FirstOrDefault(c => $"I{c.Name}" == iface.Name);
+                if (impl != null)
+                    services.AddScoped(iface, impl);
+            }
+
+            //// Đăng ký các validator từ Application.Validators
+            //var validatorTypes = typeof(LoginRequestValidator).Assembly
+            //        .GetTypes()
+            //        .Where(t => t.IsClass && !t.IsAbstract && t.Namespace == "Application.Validators" && t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IValidator<>)))
+            //        .ToList();
+
+            //foreach (var validatorType in validatorTypes)
+            //{
+            //    var validatorInterface = validatorType.GetInterfaces()
+            //        .First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IValidator<>));
+            //    services.AddScoped(validatorInterface, validatorType);
+            //    Console.WriteLine($"Đã đăng ký validator: {validatorType.FullName} cho {validatorInterface.FullName}");
+            //}
+
+            //services.AddHttpContextAccessor();
 
             return services;
         }

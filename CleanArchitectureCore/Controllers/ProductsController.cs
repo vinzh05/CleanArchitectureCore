@@ -1,6 +1,6 @@
 ﻿using Application.Abstractions.Common;
-using Application.Common.Interface;
-using Application.DTOs.Product;
+using Application.Abstractions.Service;
+using Application.Contracts.Product;
 using ChatDakenh.Controllers.Common;
 using Domain.Entities.Identity;
 using Infrastructure.Cache;

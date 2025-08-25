@@ -1,4 +1,4 @@
-﻿using Application.Abstractions.Common;
+﻿using Application.Abstractions.Infrastructure;
 using StackExchange.Redis;
 using System;
 using System.Text.Json;

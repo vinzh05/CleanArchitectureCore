@@ -20,6 +20,19 @@
           }
         }
       },
+      "FluentValidation/12.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MassTransit/8.5.2": {
         "type": "package",
         "dependencies": {
@@ -785,6 +798,7 @@
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
           "Domain": "1.0.0",
+          "FluentValidation": "12.0.0",
           "Microsoft.EntityFrameworkCore": "9.0.8",
           "NEST": "7.17.5",
           "Shared": "1.0.0"
@@ -839,6 +853,21 @@
         "lib/netstandard2.1/Elasticsearch.Net.xml",
         "license.txt",
         "nuget-icon.png"
+      ]
+    },
+    "FluentValidation/12.0.0": {
+      "sha512": "8NVLxtMUXynRHJIX3Hn1ACovaqZIJASufXIIFkD0EUbcd5PmMsL1xUD5h548gCezJ5BzlITaR9CAMrGe29aWpA==",
+      "type": "package",
+      "path": "fluentvalidation/12.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.12.0.0.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net8.0/FluentValidation.dll",
+        "lib/net8.0/FluentValidation.xml"
       ]
     },
     "MassTransit/8.5.2": {
@@ -2038,23 +2067,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\quang\\.nuget\\packages\\": {},
+    "C:\\Users\\HP\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Github\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "D:\\Github\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\quang\\.nuget\\packages\\",
-      "outputPath": "D:\\Github\\CleanArchitectureCore\\Infrastructure\\obj\\",
+      "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+      "outputPath": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\quang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2070,11 +2099,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\Github\\CleanArchitectureCore\\Application\\Application.csproj": {
-              "projectPath": "D:\\Github\\CleanArchitectureCore\\Application\\Application.csproj"
+            "D:\\GitHub\\CleanArchitectureCore\\Application\\Application.csproj": {
+              "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Application\\Application.csproj"
             },
-            "D:\\Github\\CleanArchitectureCore\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\Github\\CleanArchitectureCore\\Domain\\Domain.csproj"
+            "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj"
             }
           }
         }
@@ -2148,7 +2177,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

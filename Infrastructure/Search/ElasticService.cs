@@ -1,4 +1,4 @@
-﻿using Application.Abstractions.Common;
+﻿using Application.Abstractions.Infrastructure;
 using Domain.Entities.Identity;
 using Elasticsearch.Net;
 using Nest;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Application.Abstractions.Repositories;
+using Application.Abstractions.Repositories.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

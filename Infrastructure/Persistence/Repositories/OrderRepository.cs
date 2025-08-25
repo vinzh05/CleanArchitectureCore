@@ -1,4 +1,4 @@
-﻿using Application.Abstractions;
+﻿using Application.Abstractions.Repositories;
 using Domain.Entities;
 using Domain.Entities.Identity;
 using Infrastructure.Persistence.DatabaseContext;

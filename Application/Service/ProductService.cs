@@ -1,9 +1,13 @@
 ﻿using Application.Abstractions.Common;
-using Application.Common.Interface;
-using Application.DTOs.Product;
+using Application.Abstractions.Infrastructure;
+using Application.Abstractions.Service;
+using Application.Contracts.Product;
 using Domain.Entities.Identity;
+using FluentValidation;
 using Shared.Common;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -14,16 +18,29 @@ namespace Application.Service
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRedisCacheService _cache;
         private readonly IElasticService _elasticService;
+        private readonly IValidator<ProductRequest> _productValidator;
 
-        public ProductService(IUnitOfWork unitOfWork, IRedisCacheService cache, IElasticService elasticService)
+        public ProductService(
+            IUnitOfWork unitOfWork,
+            IRedisCacheService cache,
+            IElasticService elasticService,
+            IValidator<ProductRequest> productValidator)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _cache = cache ?? throw new ArgumentNullException(nameof(cache));
             _elasticService = elasticService ?? throw new ArgumentNullException(nameof(elasticService));
+            _productValidator = productValidator ?? throw new ArgumentNullException(nameof(productValidator));
         }
 
         public async Task<Result<Product>> CreateProductAsync(ProductRequest request)
         {
+            var validationResult = await _productValidator.ValidateAsync(request);
+            if (!validationResult.IsValid)
+            {
+                var errors = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                return Result<Product>.FailureResult($"Dữ liệu không hợp lệ: {errors}", statusCode: HttpStatusCode.BadRequest);
+            }
+
             try
             {
                 var product = new Product(request.Name, request.Description, request.Price, request.Stock);
@@ -36,8 +53,7 @@ namespace Application.Service
                 }
 
                 await _elasticService.IndexAsync(product);
-                var cacheKey = GetCacheKey(product.Id);
-                await _cache.SetAsync(cacheKey, product, TimeSpan.FromMinutes(10));
+                await _cache.SetAsync(GetCacheKey(product.Id), product, TimeSpan.FromMinutes(10));
 
                 return Result<Product>.SuccessResult(product, statusCode: HttpStatusCode.Created);
             }
@@ -75,6 +91,13 @@ namespace Application.Service
 
         public async Task<Result<Product>> UpdateProductAsync(Guid id, ProductRequest request)
         {
+            var validationResult = await _productValidator.ValidateAsync(request);
+            if (!validationResult.IsValid)
+            {
+                var errors = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+                return Result<Product>.FailureResult($"Dữ liệu không hợp lệ: {errors}", statusCode: HttpStatusCode.BadRequest);
+            }
+
             try
             {
                 var product = await _unitOfWork.Products.GetByIdAsync(id);
@@ -94,8 +117,7 @@ namespace Application.Service
                 }
 
                 await _elasticService.IndexAsync(product);
-                var cacheKey = GetCacheKey(id);
-                await _cache.RemoveAsync(cacheKey);
+                await _cache.RemoveAsync(GetCacheKey(id));
 
                 return Result<Product>.SuccessResult(product);
             }
@@ -123,8 +145,7 @@ namespace Application.Service
                 }
 
                 await _elasticService.DeleteAsync<Product>(id.ToString(), "products");
-                var cacheKey = GetCacheKey(id);
-                await _cache.RemoveAsync(cacheKey);
+                await _cache.RemoveAsync(GetCacheKey(id));
 
                 return Result<bool>.SuccessResult(true, statusCode: HttpStatusCode.NoContent);
             }
@@ -149,8 +170,7 @@ namespace Application.Service
                     return Result<List<Product>>.FailureResult("Không tìm thấy sản phẩm nào.", statusCode: HttpStatusCode.NotFound);
                 }
 
-                var products = response.Documents.ToList();
-                return Result<List<Product>>.SuccessResult(products);
+                return Result<List<Product>>.SuccessResult(response.Documents.ToList());
             }
             catch (Exception ex)
             {

@@ -1,4 +1,4 @@
-﻿using Application.Abstractions.Common;
+﻿using Application.Abstractions.Repositories.Common;
 using Infrastructure.Persistence.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using System;

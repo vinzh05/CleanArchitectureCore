@@ -1,5 +1,6 @@
-﻿using Application.Abstractions;
-using Application.Abstractions.Common;
+﻿using Application.Abstractions.Common;
+using Application.Abstractions.Repositories;
+using Application.Abstractions.Repositories.Common;
 using Domain.Common;
 using Domain.Entities.Identity;
 using Infrastructure.Persistence.DatabaseContext;
