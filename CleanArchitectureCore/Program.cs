@@ -1,6 +1,7 @@
 ﻿using Ecom.Infrastructure.DI;
 using Infrastructure.DI;
 using Infrastructure.Search;
+using CleanArchitectureCore.Controllers;
 using System.Reflection;
 
 namespace CleanArchitectureCore
@@ -16,14 +17,16 @@ namespace CleanArchitectureCore
 
             // Đăng ký dịch vụ
             builder.Services.AddControllers();
+            builder.Services.AddSignalR();
+            builder.Services.AddScoped<Application.Service.INotificationHub, Services.NotificationHubAdapter>();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             // Đăng ký toàn bộ infrastructure
             builder.Services.AddInfrastructure(builder.Configuration);
-
-            // Tự động đăng ký tất cả các dịch vụ của tầng Application
             builder.Services.AddApplicationServices();
+            builder.Services.AddJwtAuthentication(builder.Configuration);
+            builder.Services.AddHttpContextAccessor();
 
             var app = builder.Build();
 
@@ -42,6 +45,7 @@ namespace CleanArchitectureCore
             }
 
             app.MapControllers();
+            app.MapHub<NotificationHub>("/notificationHub");
             await app.RunAsync();
         }
     }

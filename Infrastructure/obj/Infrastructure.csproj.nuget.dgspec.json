@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj": {}
+    "D:\\Github\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\CleanArchitectureCore\\Application\\Application.csproj": {
+    "D:\\Github\\CleanArchitectureCore\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\CleanArchitectureCore\\Application\\Application.csproj",
+        "projectUniqueName": "D:\\Github\\CleanArchitectureCore\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\CleanArchitectureCore\\Application\\obj\\",
+        "projectPath": "D:\\Github\\CleanArchitectureCore\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\quang\\.nuget\\packages\\",
+        "outputPath": "D:\\Github\\CleanArchitectureCore\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\quang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,11 +33,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj"
+              "D:\\Github\\CleanArchitectureCore\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Github\\CleanArchitectureCore\\Domain\\Domain.csproj"
               },
-              "D:\\GitHub\\CleanArchitectureCore\\Shared\\Shared.csproj": {
-                "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Shared\\Shared.csproj"
+              "D:\\Github\\CleanArchitectureCore\\Shared\\Shared.csproj": {
+                "projectPath": "D:\\Github\\CleanArchitectureCore\\Shared\\Shared.csproj"
               }
             }
           }
@@ -62,7 +62,19 @@
               "target": "Package",
               "version": "[12.0.0, )"
             },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.1, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
               "version": "[9.0.8, )"
             },
@@ -91,20 +103,20 @@
         }
       }
     },
-    "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj": {
+    "D:\\Github\\CleanArchitectureCore\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\Github\\CleanArchitectureCore\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\CleanArchitectureCore\\Domain\\obj\\",
+        "projectPath": "D:\\Github\\CleanArchitectureCore\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\quang\\.nuget\\packages\\",
+        "outputPath": "D:\\Github\\CleanArchitectureCore\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\quang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -137,6 +149,16 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.1, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -157,20 +179,20 @@
         }
       }
     },
-    "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\Github\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\Github\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\obj\\",
+        "projectPath": "D:\\Github\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\quang\\.nuget\\packages\\",
+        "outputPath": "D:\\Github\\CleanArchitectureCore\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\quang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -186,11 +208,14 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\GitHub\\CleanArchitectureCore\\Application\\Application.csproj": {
-                "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Application\\Application.csproj"
+              "D:\\Github\\CleanArchitectureCore\\Application\\Application.csproj": {
+                "projectPath": "D:\\Github\\CleanArchitectureCore\\Application\\Application.csproj"
               },
-              "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj"
+              "D:\\Github\\CleanArchitectureCore\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Github\\CleanArchitectureCore\\Domain\\Domain.csproj"
+              },
+              "D:\\Github\\CleanArchitectureCore\\Shared\\Shared.csproj": {
+                "projectPath": "D:\\Github\\CleanArchitectureCore\\Shared\\Shared.csproj"
               }
             }
           }
@@ -214,6 +239,10 @@
             "MassTransit.RabbitMQ": {
               "target": "Package",
               "version": "[8.5.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.8, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -246,6 +275,10 @@
             "StackExchange.Redis": {
               "target": "Package",
               "version": "[2.8.58, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.14.0, )"
             }
           },
           "imports": [
@@ -268,20 +301,20 @@
         }
       }
     },
-    "D:\\GitHub\\CleanArchitectureCore\\Shared\\Shared.csproj": {
+    "D:\\Github\\CleanArchitectureCore\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\CleanArchitectureCore\\Shared\\Shared.csproj",
+        "projectUniqueName": "D:\\Github\\CleanArchitectureCore\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\CleanArchitectureCore\\Shared\\obj\\",
+        "projectPath": "D:\\Github\\CleanArchitectureCore\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\quang\\.nuget\\packages\\",
+        "outputPath": "D:\\Github\\CleanArchitectureCore\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\quang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

@@ -1,4 +1,5 @@
 ﻿using Domain.Common;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Events.Product
 {
-    public class ProductCreatedDomainEvent : BaseEvent
+    public class ProductCreatedDomainEvent : BaseEvent, INotification
     {
         public Guid ProductId { get; }
         public string Name { get; }

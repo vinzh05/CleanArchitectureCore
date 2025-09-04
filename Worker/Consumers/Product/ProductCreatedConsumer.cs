@@ -1,7 +1,7 @@
 ﻿using Infrastructure.Consumers.Common;
-using Infrastructure.Messaging.IntegrationEvents.Product;
 using Infrastructure.Search;
 using MassTransit;
+using Shared.Contracts.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;

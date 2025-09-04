@@ -6,6 +6,7 @@ using Domain.Entities.Identity;
 using Infrastructure.Persistence.DatabaseContext;
 using Infrastructure.Persistence.Repositories;
 using Infrastructure.Persistence.Repositories.Common;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
@@ -20,10 +21,12 @@ namespace Ecom.Infrastructure.Persistence
         private IDbContextTransaction? _tx;
         private readonly JsonSerializerOptions _jsonOptions;
         private readonly ConcurrentDictionary<Type, object> _repos = new();
+        private readonly IMediator _mediator;
 
-        public UnitOfWork(ApplicationDbContext context)
+        public UnitOfWork(ApplicationDbContext context, IMediator mediator)
         {
             _context = context;
+            _mediator = mediator;
             _jsonOptions = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
             Products = new ProductRepository(_context);
             Orders = new OrderRepository(_context);
@@ -31,6 +34,7 @@ namespace Ecom.Infrastructure.Persistence
 
         public IProductRepository Products { get; }
         public IOrderRepository Orders { get; }
+        public IAuthRepository Auths => GetRepository<User>() as IAuthRepository ?? new AuthRepository(_context);
 
         public IRepository<T> GetRepository<T>() where T : class
             => (IRepository<T>)_repos.GetOrAdd(typeof(T), _ => Activator.CreateInstance(typeof(Repository<>).MakeGenericType(typeof(T)), _context)!);
@@ -57,18 +61,15 @@ namespace Ecom.Infrastructure.Persistence
 
                 var domainEvents = domainEntities.SelectMany(e => e!.DomainEvents).ToList();
 
-                // Serialize domain events to Outbox (you may prefer mapping to IntegrationEvent here)
-                foreach (var evt in domainEvents)
-                {
-                    var typeName = evt.GetType().AssemblyQualifiedName ?? evt.GetType().FullName!;
-                    var payload = JsonSerializer.Serialize(evt, evt.GetType(), _jsonOptions);
-                    var outbox = new OutboxMessage { Type = typeName, Content = payload, OccurredOn = DateTimeOffset.UtcNow };
-                    await _context.OutboxMessages.AddAsync(outbox);
-                }
-
                 await _context.SaveChangesAsync();
 
                 await _tx.CommitAsync();
+
+                // publish domain events after commit
+                foreach (var evt in domainEvents)
+                {
+                    await _mediator.Publish(evt);
+                }
 
                 // clear domain events
                 foreach (var e in domainEntities) e!.ClearDomainEvents();

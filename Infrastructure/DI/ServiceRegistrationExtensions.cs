@@ -1,11 +1,11 @@
-﻿using Application.Abstractions.Repositories;
+﻿using Application.Validators;
+using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.DI
 {
@@ -16,7 +16,10 @@ namespace Infrastructure.DI
         /// </summary>
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            // Định nghĩa các namespace chứa interface
+            // Đăng ký MediatR
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Application.EventHandlers.ProductCreatedDomainEventHandler).Assembly));
+
+            // ...existing code...
             const string serviceInterfaceNamespace = "Application.Abstractions.Services";
             const string repositoryInterfaceNamespace = "Application.Abstractions.Repositories";
 
@@ -67,21 +70,19 @@ namespace Infrastructure.DI
                     services.AddScoped(iface, impl);
             }
 
-            //// Đăng ký các validator từ Application.Validators
-            //var validatorTypes = typeof(LoginRequestValidator).Assembly
-            //        .GetTypes()
-            //        .Where(t => t.IsClass && !t.IsAbstract && t.Namespace == "Application.Validators" && t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IValidator<>)))
-            //        .ToList();
+            // Đăng ký các validator từ Application.Validators
+            var validatorTypes = typeof(LoginRequestValidator).Assembly
+                    .GetTypes()
+                    .Where(t => t.IsClass && !t.IsAbstract && t.Namespace == "Application.Validators" && t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IValidator<>)))
+                    .ToList();
 
-            //foreach (var validatorType in validatorTypes)
-            //{
-            //    var validatorInterface = validatorType.GetInterfaces()
-            //        .First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IValidator<>));
-            //    services.AddScoped(validatorInterface, validatorType);
-            //    Console.WriteLine($"Đã đăng ký validator: {validatorType.FullName} cho {validatorInterface.FullName}");
-            //}
-
-            //services.AddHttpContextAccessor();
+            foreach (var validatorType in validatorTypes)
+            {
+                var validatorInterface = validatorType.GetInterfaces()
+                    .First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IValidator<>));
+                services.AddScoped(validatorInterface, validatorType);
+                Console.WriteLine($"Đã đăng ký validator: {validatorType.FullName} cho {validatorInterface.FullName}");
+            }
 
             return services;
         }

@@ -13,6 +13,7 @@ namespace Application.Abstractions.Common
         // Repository đặc thù
         IOrderRepository Orders { get; }
         IProductRepository Products { get; }
+        IAuthRepository Auths { get; }
 
         // Generic repository
         IRepository<T> GetRepository<T>() where T : class;
