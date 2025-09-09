@@ -900,6 +900,7 @@
           "MassTransit.RabbitMQ": "8.5.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.8",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.8",
+          "Microsoft.AspNetCore.SignalR": "1.1.0",
           "Microsoft.EntityFrameworkCore": "9.0.8",
           "Microsoft.Extensions.Configuration.Binder": "9.0.8",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "9.0.8",

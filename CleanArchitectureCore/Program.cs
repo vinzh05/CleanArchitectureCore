@@ -3,6 +3,8 @@ using Infrastructure.DI;
 using Infrastructure.Search;
 using CleanArchitectureCore.Controllers;
 using System.Reflection;
+using Application.Abstractions.SignalR;
+using Infrastructure.SignalR;
 
 namespace CleanArchitectureCore
 {
@@ -17,10 +19,13 @@ namespace CleanArchitectureCore
 
             // Đăng ký dịch vụ
             builder.Services.AddControllers();
-            builder.Services.AddSignalR();
-            builder.Services.AddScoped<Application.Service.INotificationHub, Services.NotificationHubAdapter>();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            //Đang ký SignalR
+            builder.Services.AddSignalR();
+            builder.Services.AddScoped<INotificationHubContext, NotificationHub>();
+            builder.Services.AddScoped<INotificationHub, NotificationHubAdapter>();
 
             // Đăng ký toàn bộ infrastructure
             builder.Services.AddInfrastructure(builder.Configuration);
