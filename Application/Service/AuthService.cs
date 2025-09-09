@@ -100,14 +100,14 @@ namespace Application.Service
         {
             var validationResult = await _loginValidator.ValidateAsync(request);
             if (!validationResult.IsValid)
-                return Result<LoginResponse>.FailureResult("Missing parameters", "VALIDATION_FAILED");
+                return Result<LoginResponse>.FailureResult("Missing parameters", "VALIDATION_FAILED", HttpStatusCode.BadRequest);
 
             var user = await GetUserByEmailAsync(request.Email);
             if (user == null)
-                return Result<LoginResponse>.FailureResult("Email does not exist", "EMAIL_NOT_FOUND");
+                return Result<LoginResponse>.FailureResult("Email does not exist", "EMAIL_NOT_FOUND", HttpStatusCode.NotFound);
 
             if (!user.EmailConfirmed)
-                return Result<LoginResponse>.FailureResult("Email not verified", "EMAIL_NOT_VERIFIED");
+                return Result<LoginResponse>.FailureResult("Email not verified", "EMAIL_NOT_VERIFIED", HttpStatusCode.Unauthorized);
 
             var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, request.Password);
 
@@ -115,7 +115,7 @@ namespace Application.Service
             {
                 var tokenPair = await GenerateAndCacheTokenAsync(user);
 
-                return Result<LoginResponse>.SuccessResult(tokenPair, "Login successful", HttpStatusCode.OK);
+                return Result<LoginResponse>.SuccessResult(tokenPair, "Login successful");
             }
 
             return Result<LoginResponse>.FailureResult("Incorrect password", "PASSWORD_INCORRECT", HttpStatusCode.Unauthorized);
@@ -125,11 +125,11 @@ namespace Application.Service
         {
             var validationResult = await _registerValidator.ValidateAsync(request);
             if (!validationResult.IsValid)
-                return Result<string>.FailureResult(validationResult.Errors[0].ErrorMessage, "VALIDATION_FAILED");
+                return Result<string>.FailureResult(validationResult.Errors[0].ErrorMessage, "VALIDATION_FAILED", HttpStatusCode.BadRequest);
 
             var existingUser = await GetUserByEmailAsync(request.Email);
             if (existingUser != null)
-                return Result<string>.FailureResult("Email is already registered", "EMAIL_ALREADY_EXISTS");
+                return Result<string>.FailureResult("Email is already registered", "EMAIL_ALREADY_EXISTS", HttpStatusCode.Conflict);
 
             var user = new User(request.Email, request.FullName, "user")
             {
@@ -152,7 +152,7 @@ namespace Application.Service
             catch (Exception ex)
             {
                 await _unitOfWork.RollbackTransactionAsync();
-                return Result<string>.FailureResult($"Registration failed: {ex.Message}", "REGISTRATION_FAILED");
+                return Result<string>.FailureResult($"Registration failed: {ex.Message}", "REGISTRATION_FAILED", HttpStatusCode.InternalServerError);
             }
         }
 
@@ -170,7 +170,7 @@ namespace Application.Service
 
             var tokenPair = await GenerateAndCacheTokenAsync(user);
 
-            return Result<LoginResponse>.SuccessResult(tokenPair, "Token refreshed", HttpStatusCode.OK);
+            return Result<LoginResponse>.SuccessResult(tokenPair, "Token refreshed");
         }
 
         public async Task<Result<string>> LogoutAsync(ClaimsPrincipal principal)
@@ -186,7 +186,7 @@ namespace Application.Service
             if (string.IsNullOrEmpty(exists))
                 return Result<string>.FailureResult("Session expired or invalid", "SESSION_INVALID", HttpStatusCode.Unauthorized);
 
-            return Result<string>.SuccessResult("Session is active");
+            return Result<string>.SuccessResult("Session is active", "SESSION_ACTIVE");
         }
     }
 }

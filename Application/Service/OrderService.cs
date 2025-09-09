@@ -22,7 +22,7 @@ namespace Application.Service
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        public async Task<Order> CreateOrderAsync(string orderNumber, List<OrderItem> items)
+        public async Task<Result<Order>> CreateOrderAsync(string orderNumber, List<OrderItem> items)
         {
             await _unitOfWork.BeginTransactionAsync();
 
@@ -32,11 +32,21 @@ namespace Application.Service
             var ok = await _unitOfWork.CommitTransactionAsync();
             if (!ok) throw new Exception("Commit failed");
 
-            return order;
+            return Result<Order>.SuccessResult(order, "Tạo đơn hàng thành công", HttpStatusCode.Created);
         }
 
-        public async Task<IEnumerable<Order>> GetAllAsync() => await _unitOfWork.Orders.GetAllAsync();
+        public async Task<Result<IEnumerable<Order>>> GetAllAsync()
+        {
+            var orders = await _unitOfWork.Orders.GetAllAsync();
+            return Result<IEnumerable<Order>>.SuccessResult(orders, "Lấy danh sách đơn hàng thành công");
+        }
 
-        public async Task<Order?> GetByIdAsync(Guid id) => await _unitOfWork.Orders.GetByIdAsync(id);
+        public async Task<Result<Order>> GetByIdAsync(Guid id)
+        {
+            var order = await _unitOfWork.Orders.GetByIdAsync(id);
+            if (order == null)
+                return Result<Order>.FailureResult("Không tìm thấy đơn hàng", "ORDER_NOT_FOUND", HttpStatusCode.NotFound);
+            return Result<Order>.SuccessResult(order, "Lấy đơn hàng thành công");
+        }
     }
 }

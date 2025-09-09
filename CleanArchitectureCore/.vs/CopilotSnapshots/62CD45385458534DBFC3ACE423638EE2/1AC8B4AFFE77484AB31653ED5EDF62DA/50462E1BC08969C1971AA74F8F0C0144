@@ -1,0 +1,134 @@
+﻿using Application.Abstractions;
+using Application.Abstractions.Common;
+using Application.Abstractions.Infrastructure;
+using Application.Abstractions.Service;
+using Application.Contracts.Payment;
+using Domain.Entities.Identity;
+using Domain.Enums;
+using Shared.Common;
+using System;
+using System.Net;
+using System.Threading.Tasks;
+
+namespace Application.Service
+{
+    public class PaymentService : IPaymentService
+    {
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IRedisCacheService _cache;
+
+        public PaymentService(IUnitOfWork unitOfWork, IRedisCacheService cache)
+        {
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _cache = cache ?? throw new ArgumentNullException(nameof(cache));
+        }
+
+        public async Task<Result<PaymentResponse>> ProcessPaymentAsync(PaymentRequest request)
+        {
+            try
+            {
+                var payment = new Payment(request.OrderId, request.Amount, request.PaymentMethod);
+                await _unitOfWork.Payments.AddAsync(payment);
+                var success = await _unitOfWork.CommitTransactionAsync();
+                if (!success) return Result<PaymentResponse>.FailureResult("Xử lý thanh toán thất bại", "500");
+
+                var response = MapToResponse(payment);
+                await _cache.SetAsync($"payment:{payment.Id}", response, TimeSpan.FromMinutes(10));
+                return Result<PaymentResponse>.SuccessResult(response);
+            }
+            catch (Exception ex)
+            {
+                return Result<PaymentResponse>.FailureResult($"Xử lý thanh toán thất bại: {ex.Message}", "500");
+            }
+        }
+
+        public async Task<Result<PaymentResponse>> GetPaymentByIdAsync(Guid id)
+        {
+            try
+            {
+                var cached = await _cache.GetAsync<PaymentResponse>($"payment:{id}");
+                if (cached != null)
+                {
+                    if (DateTime.UtcNow > cached.ExpiryDate && cached.Status == "Pending")
+                    {
+                        await FailPaymentAsync(id);
+                        cached.Status = "Failed";
+                        await _cache.SetAsync($"payment:{id}", cached, TimeSpan.FromMinutes(10));
+                    }
+                    return Result<PaymentResponse>.SuccessResult(cached);
+                }
+
+                var payment = await _unitOfWork.Payments.GetByIdAsync(id);
+                if (payment == null) return Result<PaymentResponse>.FailureResult("Thanh toán không tồn tại", "404");
+
+                if (payment.IsExpired())
+                {
+                    payment.FailPayment();
+                    _unitOfWork.Payments.Update(payment);
+                    await _unitOfWork.CommitTransactionAsync();
+                }
+
+                var response = MapToResponse(payment);
+                await _cache.SetAsync($"payment:{id}", response, TimeSpan.FromMinutes(10));
+                return Result<PaymentResponse>.SuccessResult(response);
+            }
+            catch (Exception ex)
+            {
+                return Result<PaymentResponse>.FailureResult($"Lấy thanh toán thất bại: {ex.Message}", "500");
+            }
+        }
+
+        public async Task<Result<bool>> CompletePaymentAsync(Guid id)
+        {
+            try
+            {
+                var payment = await _unitOfWork.Payments.GetByIdAsync(id);
+                if (payment == null) return Result<bool>.FailureResult("Thanh toán không tồn tại", "404");
+                if (payment.IsExpired()) return Result<bool>.FailureResult("Thanh toán đã quá hạn", "400");
+
+                payment.CompletePayment();
+                _unitOfWork.Payments.Update(payment);
+                var success = await _unitOfWork.CommitTransactionAsync();
+                if (success) await _cache.RemoveAsync($"payment:{id}");
+                return success ? Result<bool>.SuccessResult(true) : Result<bool>.FailureResult("Hoàn tất thanh toán thất bại", "500");
+            }
+            catch (Exception ex)
+            {
+                return Result<bool>.FailureResult($"Hoàn tất thanh toán thất bại: {ex.Message}", "500");
+            }
+        }
+
+        public async Task<Result<bool>> FailPaymentAsync(Guid id)
+        {
+            try
+            {
+                var payment = await _unitOfWork.Payments.GetByIdAsync(id);
+                if (payment == null) return Result<bool>.FailureResult("Thanh toán không tồn tại", "404");
+
+                payment.FailPayment();
+                _unitOfWork.Payments.Update(payment);
+                var success = await _unitOfWork.CommitTransactionAsync();
+                if (success) await _cache.RemoveAsync($"payment:{id}");
+                return success ? Result<bool>.SuccessResult(true) : Result<bool>.FailureResult("Thất bại thanh toán thất bại", "500");
+            }
+            catch (Exception ex)
+            {
+                return Result<bool>.FailureResult($"Thất bại thanh toán thất bại: {ex.Message}", "500");
+            }
+        }
+
+        private PaymentResponse MapToResponse(Payment payment)
+        {
+            return new PaymentResponse
+            {
+                Id = payment.Id,
+                OrderId = payment.OrderId,
+                Amount = payment.Amount,
+                PaymentMethod = payment.PaymentMethod,
+                Status = payment.Status.ToString(),
+                CreatedAt = payment.CreatedAt,
+                ExpiryDate = payment.ExpiryDate
+            };
+        }
+    }
+}

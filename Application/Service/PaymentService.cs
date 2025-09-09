@@ -30,15 +30,15 @@ namespace Application.Service
                 var payment = new Payment(request.OrderId, request.Amount, request.PaymentMethod);
                 await _unitOfWork.Payments.AddAsync(payment);
                 var success = await _unitOfWork.CommitTransactionAsync();
-                if (!success) return Result<PaymentResponse>.FailureResult("Xử lý thanh toán thất bại", "500");
+                if (!success) return Result<PaymentResponse>.FailureResult("Xử lý thanh toán thất bại", "PAYMENT_PROCESS_FAILED", HttpStatusCode.InternalServerError);
 
                 var response = MapToResponse(payment);
                 await _cache.SetAsync($"payment:{payment.Id}", response, TimeSpan.FromMinutes(10));
-                return Result<PaymentResponse>.SuccessResult(response);
+                return Result<PaymentResponse>.SuccessResult(response, "Thanh toán được xử lý thành công", HttpStatusCode.Created);
             }
             catch (Exception ex)
             {
-                return Result<PaymentResponse>.FailureResult($"Xử lý thanh toán thất bại: {ex.Message}", "500");
+                return Result<PaymentResponse>.FailureResult($"Xử lý thanh toán thất bại: {ex.Message}", "PAYMENT_PROCESS_ERROR", HttpStatusCode.InternalServerError);
             }
         }
 
@@ -55,11 +55,11 @@ namespace Application.Service
                         cached.Status = "Failed";
                         await _cache.SetAsync($"payment:{id}", cached, TimeSpan.FromMinutes(10));
                     }
-                    return Result<PaymentResponse>.SuccessResult(cached);
+                    return Result<PaymentResponse>.SuccessResult(cached, "Lấy thanh toán từ cache thành công");
                 }
 
                 var payment = await _unitOfWork.Payments.GetByIdAsync(id);
-                if (payment == null) return Result<PaymentResponse>.FailureResult("Thanh toán không tồn tại", "404");
+                if (payment == null) return Result<PaymentResponse>.FailureResult("Thanh toán không tồn tại", "PAYMENT_NOT_FOUND", HttpStatusCode.NotFound);
 
                 if (payment.IsExpired())
                 {
@@ -70,11 +70,11 @@ namespace Application.Service
 
                 var response = MapToResponse(payment);
                 await _cache.SetAsync($"payment:{id}", response, TimeSpan.FromMinutes(10));
-                return Result<PaymentResponse>.SuccessResult(response);
+                return Result<PaymentResponse>.SuccessResult(response, "Lấy thanh toán thành công");
             }
             catch (Exception ex)
             {
-                return Result<PaymentResponse>.FailureResult($"Lấy thanh toán thất bại: {ex.Message}", "500");
+                return Result<PaymentResponse>.FailureResult($"Lấy thanh toán thất bại: {ex.Message}", "PAYMENT_GET_ERROR", HttpStatusCode.InternalServerError);
             }
         }
 
@@ -83,18 +83,18 @@ namespace Application.Service
             try
             {
                 var payment = await _unitOfWork.Payments.GetByIdAsync(id);
-                if (payment == null) return Result<bool>.FailureResult("Thanh toán không tồn tại", "404");
-                if (payment.IsExpired()) return Result<bool>.FailureResult("Thanh toán đã quá hạn", "400");
+                if (payment == null) return Result<bool>.FailureResult("Thanh toán không tồn tại", "PAYMENT_NOT_FOUND", HttpStatusCode.NotFound);
+                if (payment.IsExpired()) return Result<bool>.FailureResult("Thanh toán đã quá hạn", "PAYMENT_EXPIRED", HttpStatusCode.BadRequest);
 
                 payment.CompletePayment();
                 _unitOfWork.Payments.Update(payment);
                 var success = await _unitOfWork.CommitTransactionAsync();
                 if (success) await _cache.RemoveAsync($"payment:{id}");
-                return success ? Result<bool>.SuccessResult(true) : Result<bool>.FailureResult("Hoàn tất thanh toán thất bại", "500");
+                return success ? Result<bool>.SuccessResult(true, "Thanh toán hoàn tất thành công") : Result<bool>.FailureResult("Hoàn tất thanh toán thất bại", "PAYMENT_COMPLETE_FAILED", HttpStatusCode.InternalServerError);
             }
             catch (Exception ex)
             {
-                return Result<bool>.FailureResult($"Hoàn tất thanh toán thất bại: {ex.Message}", "500");
+                return Result<bool>.FailureResult($"Hoàn tất thanh toán thất bại: {ex.Message}", "PAYMENT_COMPLETE_ERROR", HttpStatusCode.InternalServerError);
             }
         }
 
@@ -103,17 +103,17 @@ namespace Application.Service
             try
             {
                 var payment = await _unitOfWork.Payments.GetByIdAsync(id);
-                if (payment == null) return Result<bool>.FailureResult("Thanh toán không tồn tại", "404");
+                if (payment == null) return Result<bool>.FailureResult("Thanh toán không tồn tại", "PAYMENT_NOT_FOUND", HttpStatusCode.NotFound);
 
                 payment.FailPayment();
                 _unitOfWork.Payments.Update(payment);
                 var success = await _unitOfWork.CommitTransactionAsync();
                 if (success) await _cache.RemoveAsync($"payment:{id}");
-                return success ? Result<bool>.SuccessResult(true) : Result<bool>.FailureResult("Thất bại thanh toán thất bại", "500");
+                return success ? Result<bool>.SuccessResult(true, "Thanh toán thất bại thành công") : Result<bool>.FailureResult("Thất bại thanh toán thất bại", "PAYMENT_FAIL_FAILED", HttpStatusCode.InternalServerError);
             }
             catch (Exception ex)
             {
-                return Result<bool>.FailureResult($"Thất bại thanh toán thất bại: {ex.Message}", "500");
+                return Result<bool>.FailureResult($"Thất bại thanh toán thất bại: {ex.Message}", "PAYMENT_FAIL_ERROR", HttpStatusCode.InternalServerError);
             }
         }
 

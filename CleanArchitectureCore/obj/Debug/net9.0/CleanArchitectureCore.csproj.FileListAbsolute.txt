@@ -90,4 +90,4 @@ d:\Github\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\refint\Cl
 d:\Github\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\CleanArchitectureCore.pdb
 d:\Github\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\CleanArchitectureCore.genruntimeconfig.cache
 d:\Github\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\ref\CleanArchitectureCore.dll
-D:\Github\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\GitHub\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

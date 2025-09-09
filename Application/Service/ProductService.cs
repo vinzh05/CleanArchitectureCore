@@ -38,7 +38,7 @@ namespace Application.Service
             if (!validationResult.IsValid)
             {
                 var errors = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
-                return Result<Product>.FailureResult($"Dữ liệu không hợp lệ: {errors}", statusCode: HttpStatusCode.BadRequest);
+                return Result<Product>.FailureResult($"Dữ liệu không hợp lệ: {errors}", "VALIDATION_ERROR", HttpStatusCode.BadRequest);
             }
 
             try
@@ -49,17 +49,17 @@ namespace Application.Service
                 var success = await _unitOfWork.CommitTransactionAsync();
                 if (!success)
                 {
-                    return Result<Product>.FailureResult("Tạo sản phẩm thất bại.", statusCode: HttpStatusCode.InternalServerError);
+                    return Result<Product>.FailureResult("Tạo sản phẩm thất bại.", "PRODUCT_CREATE_FAILED", HttpStatusCode.InternalServerError);
                 }
 
                 await _elasticService.IndexAsync(product);
                 await _cache.SetAsync(GetCacheKey(product.Id), product, TimeSpan.FromMinutes(10));
 
-                return Result<Product>.SuccessResult(product, statusCode: HttpStatusCode.Created);
+                return Result<Product>.SuccessResult(product, "Sản phẩm được tạo thành công", HttpStatusCode.Created);
             }
             catch (Exception ex)
             {
-                return Result<Product>.FailureResult($"Tạo sản phẩm thất bại: {ex.Message}", statusCode: HttpStatusCode.InternalServerError);
+                return Result<Product>.FailureResult($"Tạo sản phẩm thất bại: {ex.Message}", "PRODUCT_CREATE_ERROR", HttpStatusCode.InternalServerError);
             }
         }
 
@@ -71,21 +71,21 @@ namespace Application.Service
                 var cachedProduct = await _cache.GetAsync<Product>(cacheKey);
                 if (cachedProduct != null)
                 {
-                    return Result<Product>.SuccessResult(cachedProduct);
+                    return Result<Product>.SuccessResult(cachedProduct, "Lấy sản phẩm từ cache thành công");
                 }
 
                 var product = await _unitOfWork.Products.GetByIdAsync(id);
                 if (product == null)
                 {
-                    return Result<Product>.FailureResult("Không tìm thấy sản phẩm.", statusCode: HttpStatusCode.NotFound);
+                    return Result<Product>.FailureResult("Không tìm thấy sản phẩm.", "PRODUCT_NOT_FOUND", HttpStatusCode.NotFound);
                 }
 
                 await _cache.SetAsync(cacheKey, product, TimeSpan.FromMinutes(10));
-                return Result<Product>.SuccessResult(product);
+                return Result<Product>.SuccessResult(product, "Lấy sản phẩm thành công");
             }
             catch (Exception ex)
             {
-                return Result<Product>.FailureResult($"Lấy sản phẩm thất bại: {ex.Message}", statusCode: HttpStatusCode.InternalServerError);
+                return Result<Product>.FailureResult($"Lấy sản phẩm thất bại: {ex.Message}", "PRODUCT_GET_ERROR", HttpStatusCode.InternalServerError);
             }
         }
 
@@ -95,7 +95,7 @@ namespace Application.Service
             if (!validationResult.IsValid)
             {
                 var errors = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
-                return Result<Product>.FailureResult($"Dữ liệu không hợp lệ: {errors}", statusCode: HttpStatusCode.BadRequest);
+                return Result<Product>.FailureResult($"Dữ liệu không hợp lệ: {errors}", "VALIDATION_ERROR", HttpStatusCode.BadRequest);
             }
 
             try
@@ -103,7 +103,7 @@ namespace Application.Service
                 var product = await _unitOfWork.Products.GetByIdAsync(id);
                 if (product == null)
                 {
-                    return Result<Product>.FailureResult("Không tìm thấy sản phẩm cần cập nhật.", statusCode: HttpStatusCode.NotFound);
+                    return Result<Product>.FailureResult("Không tìm thấy sản phẩm cần cập nhật.", "PRODUCT_NOT_FOUND", HttpStatusCode.NotFound);
                 }
 
                 product.UpdateStock(request.Stock);
@@ -113,17 +113,17 @@ namespace Application.Service
                 var success = await _unitOfWork.CommitTransactionAsync();
                 if (!success)
                 {
-                    return Result<Product>.FailureResult("Cập nhật sản phẩm thất bại.", statusCode: HttpStatusCode.InternalServerError);
+                    return Result<Product>.FailureResult("Cập nhật sản phẩm thất bại.", "PRODUCT_UPDATE_FAILED", HttpStatusCode.InternalServerError);
                 }
 
                 await _elasticService.IndexAsync(product);
                 await _cache.RemoveAsync(GetCacheKey(id));
 
-                return Result<Product>.SuccessResult(product);
+                return Result<Product>.SuccessResult(product, "Sản phẩm được cập nhật thành công");
             }
             catch (Exception ex)
             {
-                return Result<Product>.FailureResult($"Cập nhật sản phẩm thất bại: {ex.Message}", statusCode: HttpStatusCode.InternalServerError);
+                return Result<Product>.FailureResult($"Cập nhật sản phẩm thất bại: {ex.Message}", "PRODUCT_UPDATE_ERROR", HttpStatusCode.InternalServerError);
             }
         }
 
@@ -134,24 +134,24 @@ namespace Application.Service
                 var product = await _unitOfWork.Products.GetByIdAsync(id);
                 if (product == null)
                 {
-                    return Result<bool>.FailureResult("Không tìm thấy sản phẩm cần xóa.", statusCode: HttpStatusCode.NotFound);
+                    return Result<bool>.FailureResult("Không tìm thấy sản phẩm cần xóa.", "PRODUCT_NOT_FOUND", HttpStatusCode.NotFound);
                 }
 
                 _unitOfWork.Products.Update(product);
                 var success = await _unitOfWork.CommitTransactionAsync();
                 if (!success)
                 {
-                    return Result<bool>.FailureResult("Xóa sản phẩm thất bại.", statusCode: HttpStatusCode.InternalServerError);
+                    return Result<bool>.FailureResult("Xóa sản phẩm thất bại.", "PRODUCT_DELETE_FAILED", HttpStatusCode.InternalServerError);
                 }
 
                 await _elasticService.DeleteAsync<Product>(id.ToString(), "products");
                 await _cache.RemoveAsync(GetCacheKey(id));
 
-                return Result<bool>.SuccessResult(true, statusCode: HttpStatusCode.NoContent);
+                return Result<bool>.SuccessResult(true, "Sản phẩm được xóa thành công", HttpStatusCode.NoContent);
             }
             catch (Exception ex)
             {
-                return Result<bool>.FailureResult($"Xóa sản phẩm thất bại: {ex.Message}", statusCode: HttpStatusCode.InternalServerError);
+                return Result<bool>.FailureResult($"Xóa sản phẩm thất bại: {ex.Message}", "PRODUCT_DELETE_ERROR", HttpStatusCode.InternalServerError);
             }
         }
 
@@ -161,20 +161,20 @@ namespace Application.Service
             {
                 if (string.IsNullOrWhiteSpace(query))
                 {
-                    return Result<List<Product>>.FailureResult("Query không được để trống.", statusCode: HttpStatusCode.BadRequest);
+                    return Result<List<Product>>.FailureResult("Query không được để trống.", "INVALID_QUERY", HttpStatusCode.BadRequest);
                 }
 
                 var response = await _elasticService.SearchAsync(query, from, size);
                 if (!response.IsValid || !response.Documents.Any())
                 {
-                    return Result<List<Product>>.FailureResult("Không tìm thấy sản phẩm nào.", statusCode: HttpStatusCode.NotFound);
+                    return Result<List<Product>>.FailureResult("Không tìm thấy sản phẩm nào.", "NO_PRODUCTS_FOUND", HttpStatusCode.NotFound);
                 }
 
-                return Result<List<Product>>.SuccessResult(response.Documents.ToList());
+                return Result<List<Product>>.SuccessResult(response.Documents.ToList(), "Tìm kiếm sản phẩm thành công");
             }
             catch (Exception ex)
             {
-                return Result<List<Product>>.FailureResult($"Tìm kiếm sản phẩm thất bại: {ex.Message}", statusCode: HttpStatusCode.InternalServerError);
+                return Result<List<Product>>.FailureResult($"Tìm kiếm sản phẩm thất bại: {ex.Message}", "PRODUCT_SEARCH_ERROR", HttpStatusCode.InternalServerError);
             }
         }
 
