@@ -85,3 +85,4 @@ d:\Github\CleanArchitectureCore\Worker\obj\Debug\net9.0\refint\Worker.dll
 d:\Github\CleanArchitectureCore\Worker\obj\Debug\net9.0\Worker.pdb
 d:\Github\CleanArchitectureCore\Worker\obj\Debug\net9.0\Worker.genruntimeconfig.cache
 d:\Github\CleanArchitectureCore\Worker\obj\Debug\net9.0\ref\Worker.dll
+D:\GitHub\CleanArchitectureCore\Worker\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

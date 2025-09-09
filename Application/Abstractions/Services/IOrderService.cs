@@ -1,4 +1,5 @@
 ﻿using Domain.Entities.Identity;
+using Domain.Items;
 using Shared.Common;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace Application.Abstractions.Service
 {
     public interface IOrderService
     {
-        Task<Order> CreateOrderAsync(string orderNumber, decimal total);
+        Task<Order> CreateOrderAsync(string orderNumber, List<OrderItem> items);
         Task<Order?> GetByIdAsync(Guid id);
         Task<IEnumerable<Order>> GetAllAsync();
     }

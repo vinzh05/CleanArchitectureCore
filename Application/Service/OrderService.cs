@@ -1,8 +1,8 @@
 ﻿using Application.Abstractions;
 using Application.Abstractions.Common;
 using Application.Abstractions.Service;
-using Domain.Entities;
 using Domain.Entities.Identity;
+using Domain.Items;
 using Shared.Common;
 using System;
 using System.Collections.Generic;
@@ -19,14 +19,14 @@ namespace Application.Service
 
         public OrderService(IUnitOfWork unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        public async Task<Order> CreateOrderAsync(string orderNumber, decimal total)
+        public async Task<Order> CreateOrderAsync(string orderNumber, List<OrderItem> items)
         {
             await _unitOfWork.BeginTransactionAsync();
 
-            var order = new Order(orderNumber, total);
+            var order = new Order(orderNumber, items);
             await _unitOfWork.Orders.AddAsync(order);
 
             var ok = await _unitOfWork.CommitTransactionAsync();

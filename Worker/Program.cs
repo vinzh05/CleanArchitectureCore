@@ -3,6 +3,8 @@ using Ecom.Infrastructure.DI;
 using Ecom.Infrastructure.Messaging;
 using Infrastructure.Consumers.Product;
 using MassTransit;
+using Application.Abstractions.Service; // Thêm để register IProductService
+using Application.Service; // Thêm để register ProductService
 
 namespace Worker
 {
@@ -17,6 +19,9 @@ namespace Worker
                     var config = ctx.Configuration;
 
                     services.AddInfrastructure(config, addOutboxPublisher: true);
+
+                    // Register Application services
+                    services.AddScoped<IProductService, ProductService>();
 
                     // Register consumers in worker assembly
                     services.AddMassTransit(x =>

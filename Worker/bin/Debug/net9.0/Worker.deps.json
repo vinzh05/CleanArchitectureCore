@@ -643,6 +643,7 @@
           "Microsoft.Extensions.Configuration.Json": "9.0.8",
           "NEST": "7.17.5",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
+          "Shared": "1.0.0",
           "StackExchange.Redis": "2.8.58",
           "System.IdentityModel.Tokens.Jwt": "8.14.0"
         },

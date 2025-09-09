@@ -1,4 +1,5 @@
-﻿using Domain.Entities.Identity;
+﻿using Domain.Entities;
+using Domain.Entities.Identity;
 using Ecom.Infrastructure.Persistence;
 using Infrastructure.Persistence.DatabaseContext;
 using MassTransit;
@@ -13,6 +14,11 @@ using System.Threading.Tasks.Dataflow;
 
 namespace Ecom.Infrastructure.Outbox
 {
+    /// <summary>
+    /// Dịch vụ nền (BackgroundService) để publish các message từ Outbox ra RabbitMQ qua MassTransit.
+    /// Đọc và xử lý các OutboxMessage chưa được publish, deserialize và gửi qua IPublishEndpoint.
+    /// Hỗ trợ batch processing, parallel execution và retry logic.
+    /// </summary>
     public class OutboxPublisherService : BackgroundService
     {
         private readonly IServiceProvider _sp;
@@ -30,6 +36,11 @@ namespace Ecom.Infrastructure.Outbox
             _parallel = _cfg.GetValue<int>("Outbox:MaxDegreeOfParallelism", 4);
         }
 
+        /// <summary>
+        /// Thực thi vòng lặp chính để poll và publish OutboxMessage.
+        /// Sử dụng Dataflow để xử lý song song, cập nhật trạng thái Processed sau khi publish thành công.
+        /// Xử lý lỗi bằng cách tăng RetryCount và log.
+        /// </summary>
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             _logger.LogInformation("OutboxPublisherService started");

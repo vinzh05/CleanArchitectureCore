@@ -2567,23 +2567,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\quang\\.nuget\\packages\\": {},
+    "C:\\Users\\HP\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Github\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "D:\\Github\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\quang\\.nuget\\packages\\",
-      "outputPath": "D:\\Github\\CleanArchitectureCore\\Infrastructure\\obj\\",
+      "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+      "outputPath": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\quang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2599,14 +2599,14 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\Github\\CleanArchitectureCore\\Application\\Application.csproj": {
-              "projectPath": "D:\\Github\\CleanArchitectureCore\\Application\\Application.csproj"
+            "D:\\GitHub\\CleanArchitectureCore\\Application\\Application.csproj": {
+              "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Application\\Application.csproj"
             },
-            "D:\\Github\\CleanArchitectureCore\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\Github\\CleanArchitectureCore\\Domain\\Domain.csproj"
+            "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj"
             },
-            "D:\\Github\\CleanArchitectureCore\\Shared\\Shared.csproj": {
-              "projectPath": "D:\\Github\\CleanArchitectureCore\\Shared\\Shared.csproj"
+            "D:\\GitHub\\CleanArchitectureCore\\Shared\\Shared.csproj": {
+              "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Shared\\Shared.csproj"
             }
           }
         }

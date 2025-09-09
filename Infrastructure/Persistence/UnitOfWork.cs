@@ -2,6 +2,7 @@
 using Application.Abstractions.Repositories;
 using Application.Abstractions.Repositories.Common;
 using Domain.Common;
+using Domain.Entities;
 using Domain.Entities.Identity;
 using Infrastructure.Persistence.DatabaseContext;
 using Infrastructure.Persistence.Repositories;
@@ -9,6 +10,7 @@ using Infrastructure.Persistence.Repositories.Common;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using Nest;
 using System;
 using System.Collections.Concurrent;
 using System.Text.Json;
@@ -23,21 +25,22 @@ namespace Ecom.Infrastructure.Persistence
         private readonly ConcurrentDictionary<Type, object> _repos = new();
         private readonly IMediator _mediator;
 
-        public UnitOfWork(ApplicationDbContext context, IMediator mediator)
+        public UnitOfWork(ApplicationDbContext context,
+            IMediator mediator)
         {
             _context = context;
             _mediator = mediator;
             _jsonOptions = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
             Products = new ProductRepository(_context);
             Orders = new OrderRepository(_context);
+            Auths = new AuthRepository(_context);
+            Payments = new PaymentRepository(_context);
         }
 
         public IProductRepository Products { get; }
         public IOrderRepository Orders { get; }
-        public IAuthRepository Auths => GetRepository<User>() as IAuthRepository ?? new AuthRepository(_context);
-
-        public IRepository<T> GetRepository<T>() where T : class
-            => (IRepository<T>)_repos.GetOrAdd(typeof(T), _ => Activator.CreateInstance(typeof(Repository<>).MakeGenericType(typeof(T)), _context)!);
+        public IAuthRepository Auths { get; }
+        public IPaymentRepository Payments { get; }
 
         public async Task BeginTransactionAsync()
         {

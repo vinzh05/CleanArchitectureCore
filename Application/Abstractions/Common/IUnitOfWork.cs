@@ -14,9 +14,7 @@ namespace Application.Abstractions.Common
         IOrderRepository Orders { get; }
         IProductRepository Products { get; }
         IAuthRepository Auths { get; }
-
-        // Generic repository
-        IRepository<T> GetRepository<T>() where T : class;
+        IPaymentRepository Payments { get; }
 
         // Transaction control
         Task BeginTransactionAsync();

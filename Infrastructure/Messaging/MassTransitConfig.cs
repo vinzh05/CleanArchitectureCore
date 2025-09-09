@@ -6,10 +6,18 @@ using System;
 
 namespace Ecom.Infrastructure.Messaging
 {
+    /// <summary>
+    /// Lớp cấu hình tĩnh cho MassTransit, tích hợp với RabbitMQ để quản lý messaging trong hệ thống.
+    /// Cung cấp các phương thức để đăng ký publisher và consumer cho RabbitMQ.
+    /// </summary>
     public static class MassTransitConfig
     {
-        // Publisher registration (WebApi) - only ensures bus exists and IPublishEndpoint available
-        public static void AddMassTransitPublisher(IServiceCollection services, IConfiguration cfg)
+    /// <summary>
+    /// Đăng ký MassTransit cho vai trò Publisher (WebApi).
+    /// Chỉ tạo bus để publish message (IPublishEndpoint), không định nghĩa queue vì Publisher chỉ gửi message.
+    /// Sử dụng cấu hình RabbitMQ từ appsettings (Host, Username, Password).
+    /// </summary>
+    public static void AddMassTransitPublisher(IServiceCollection services, IConfiguration cfg)
         {
             var mqHost = cfg.GetValue<string>("RabbitMq:Host", "rabbitmq");
             var mqUser = cfg.GetValue<string>("RabbitMq:Username", "guest");
@@ -30,7 +38,13 @@ namespace Ecom.Infrastructure.Messaging
             });
         }
 
-        // Consumer registration (Worker) - will create endpoints from config and allow configurePerEndpoint to attach consumers
+        /// <summary>
+        /// Đăng ký MassTransit cho vai trò Consumer (Worker).
+        /// Tự động tạo endpoint theo cấu hình RabbitMq:Exchanges trong appsettings.
+        /// Cho phép custom từng endpoint qua delegate configurePerEndpoint.
+        /// Cấu hình prefetch, retry (số lần và khoảng thời gian).
+        /// Bind queue vào exchange theo type (fanout, direct, topic...) và routing key.
+        /// </summary>
         public static void AddMassTransitConsumers(IServiceCollection services, IConfiguration cfg, Action<IBusRegistrationContext, IRabbitMqReceiveEndpointConfigurator, string>? configurePerEndpoint = null)
         {
             var mqHost = cfg.GetValue<string>("RabbitMq:Host", "rabbitmq");

@@ -27,10 +27,10 @@ namespace Ecom.Infrastructure.DI
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config, bool addOutboxPublisher = true)
         {
-            services.AddDatabase(config);
-            services.AddRepositories();
-            services.AddCaching(config);
-            services.AddSearch(config);
+            services.AddDatabase(config)
+                    .AddRepositories()
+                    .AddCaching(config)
+                    .AddJwtAuthentication(config);
 
             // MassTransit publisher (WebApi) registration
             MassTransitConfig.AddMassTransitPublisher(services, config);
@@ -50,9 +50,6 @@ namespace Ecom.Infrastructure.DI
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped(typeof(Application.Abstractions.Repositories.Common.IRepository<>), typeof(Repository<>));
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<IOrderRepository, OrderRepository>();
-            services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             return services;
         }
