@@ -22,7 +22,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Application.Abstractions.SignalR;
 
-namespace Ecom.Infrastructure.DI
+namespace Infrastructure.DI
 {
     public static class InfrastructureServiceRegistration
     {

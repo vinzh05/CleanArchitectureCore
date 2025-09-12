@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace Ecom.Infrastructure.DI
+namespace Infrastructure.DI
 {
     public static class ConfigurationExtensions
     {
