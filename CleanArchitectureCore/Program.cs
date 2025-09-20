@@ -1,5 +1,4 @@
-﻿using Ecom.Infrastructure.DI;
-using Infrastructure.DI;
+﻿using Infrastructure.DI;
 using Infrastructure.Search;
 using CleanArchitectureCore.Controllers;
 using System.Reflection;

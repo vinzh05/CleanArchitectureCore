@@ -20,27 +20,15 @@ namespace CleanArchitectureCore.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(Guid id)
-        {
-            return await HandleAsync(_productService.GetProductByIdAsync(id));
-        }
+        public async Task<IActionResult> Get(Guid id) => await HandleAsync(_productService.GetProductByIdAsync(id));
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ProductRequest req)
-        {
-            return await HandleAsync(_productService.CreateProductAsync(req));
-        }
+        public async Task<IActionResult> Create([FromBody] ProductRequest req) => await HandleAsync(_productService.CreateProductAsync(req));
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Guid id, [FromBody] ProductRequest req)
-        {
-            return await HandleAsync(_productService.UpdateProductAsync(id, req));
-        }
+        public async Task<IActionResult> Update(Guid id, [FromBody] ProductRequest req) => await HandleAsync(_productService.UpdateProductAsync(id, req));
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(Guid id)
-        {
-            return await HandleAsync(_productService.DeleteProductAsync(id));
-        }
+        public async Task<IActionResult> Delete(Guid id) => await HandleAsync(_productService.DeleteProductAsync(id));
     }
 }

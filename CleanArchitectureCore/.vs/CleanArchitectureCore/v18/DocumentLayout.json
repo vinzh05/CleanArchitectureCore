@@ -3,6 +3,49 @@
   "WorkspaceRootPath": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\messaging\\outboxpublisherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|solutionrelative:controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\service\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\abstractions\\services\\inotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\contracts\\notification\\bulknotificationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\controllers\\notificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|solutionrelative:controllers\\notificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\signalr\\notificationhubadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\abstractions\\signalr\\inotificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\abstractions\\signalr\\inotificationhubcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|solutionrelative:controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\persistence\\databasecontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0FFC52-1A8C-4D11-BBA8-7017AF5B5C0B}|..\\Domain\\Domain.csproj|d:\\github\\cleanarchitecturecore\\domain\\entities\\identity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\di\\serviceregistrationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -10,10 +53,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\di\\configurationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -32,23 +71,10 @@
       "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\persistence\\repositories\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\controllers\\notificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|solutionrelative:controllers\\notificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\service\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\service\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\abstractions\\services\\inotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\abstractions\\signalr\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\abstractions\\signalr\\inotificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -66,9 +92,6 @@
       "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\abstractions\\common\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\messaging\\outboxpublisherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\abstractions\\repositories\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -82,9 +105,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\persistence\\repositories\\common\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\persistence\\databasecontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\eventhandlers\\ordercreateddomaineventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -135,9 +155,6 @@
       "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\validators\\loginrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EA0FFC52-1A8C-4D11-BBA8-7017AF5B5C0B}|..\\Domain\\Domain.csproj|d:\\github\\cleanarchitecturecore\\domain\\entities\\identity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\persistence\\jwt\\jwtprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -145,10 +162,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\cache\\rediscacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|solutionrelative:controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A97A53D3-2EC9-41F5-AB63-82401EDB2ABF}|..\\Application\\Application.csproj|d:\\github\\cleanarchitecturecore\\application\\abstractions\\infrastructure\\iapplicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -179,7 +192,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -191,40 +204,227 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NotificationController.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\NotificationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NotificationController.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\NotificationController.cs",
+              "RelativeToolTip": "Controllers\\NotificationController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAIAxwCoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T18:46:14.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NotificationService.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Service\\NotificationService.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Service\\NotificationService.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Application\\Service\\NotificationService.cs",
+              "RelativeToolTip": "..\\Application\\Service\\NotificationService.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T06:58:57.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "INotificationHub.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
+              "RelativeToolTip": "..\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T07:05:52.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NotificationHub.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\NotificationHub.cs",
+              "RelativeDocumentMoniker": "Controllers\\NotificationHub.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\NotificationHub.cs",
+              "RelativeToolTip": "Controllers\\NotificationHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T08:37:12.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "INotificationService.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Services\\INotificationService.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Abstractions\\Services\\INotificationService.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Services\\INotificationService.cs",
+              "RelativeToolTip": "..\\Application\\Abstractions\\Services\\INotificationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T23:29:54.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-09T08:39:44.183Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "OrderRepository.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\Repositories\\OrderRepository.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure\\Persistence\\Repositories\\OrderRepository.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\Repositories\\OrderRepository.cs",
-              "RelativeToolTip": "..\\Infrastructure\\Persistence\\Repositories\\OrderRepository.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAABTAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "OutboxPublisherService.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Messaging\\OutboxPublisherService.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\Messaging\\OutboxPublisherService.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Messaging\\OutboxPublisherService.cs",
+              "RelativeToolTip": "..\\Infrastructure\\Messaging\\OutboxPublisherService.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAApwGoAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T04:54:59.198Z"
+              "WhenOpened": "2025-08-08T21:30:41.277Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
+              "Title": "BulkNotificationRequest.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Contracts\\Notification\\BulkNotificationRequest.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Contracts\\Notification\\BulkNotificationRequest.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Application\\Contracts\\Notification\\BulkNotificationRequest.cs",
+              "RelativeToolTip": "..\\Application\\Contracts\\Notification\\BulkNotificationRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T07:59:57.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "INotificationHubContext.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\SignalR\\INotificationHubContext.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Abstractions\\SignalR\\INotificationHubContext.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\SignalR\\INotificationHubContext.cs",
+              "RelativeToolTip": "..\\Application\\Abstractions\\SignalR\\INotificationHubContext.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwA4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T08:11:46.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "NotificationHubAdapter.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\SignalR\\NotificationHubAdapter.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\SignalR\\NotificationHubAdapter.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\SignalR\\NotificationHubAdapter.cs",
+              "RelativeToolTip": "..\\Infrastructure\\SignalR\\NotificationHubAdapter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T08:12:44.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductsController.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABkAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T04:21:22.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\DatabaseContext\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\Persistence\\DatabaseContext\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\DatabaseContext\\ApplicationDbContext.cs",
+              "RelativeToolTip": "..\\Infrastructure\\Persistence\\DatabaseContext\\ApplicationDbContext.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAqwAwAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T04:41:15.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Entities\\Identity\\User.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\Entities\\Identity\\User.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Entities\\Identity\\User.cs",
+              "RelativeToolTip": "..\\Domain\\Entities\\Identity\\User.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T22:57:28.385Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ConfigurationExtensions.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\ConfigurationExtensions.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\DI\\ConfigurationExtensions.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\ConfigurationExtensions.cs",
+              "RelativeToolTip": "..\\Infrastructure\\DI\\ConfigurationExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-09T08:41:47.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-09T08:10:39.447Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "InfrastructureServiceRegistration.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
+              "RelativeToolTip": "..\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-09T08:07:58.817Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\Persistence\\Repositories\\ProductRepository.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "..\\Infrastructure\\Persistence\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAqwBoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T03:40:00.274Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "PaymentRepository.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\Repositories\\PaymentRepository.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure\\Persistence\\Repositories\\PaymentRepository.cs",
@@ -236,72 +436,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProductRepository.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\Repositories\\ProductRepository.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure\\Persistence\\Repositories\\ProductRepository.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\Repositories\\ProductRepository.cs",
-              "RelativeToolTip": "..\\Infrastructure\\Persistence\\Repositories\\ProductRepository.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAqwBoAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 19,
+              "Title": "OrderRepository.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\Repositories\\OrderRepository.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\Persistence\\Repositories\\OrderRepository.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\Repositories\\OrderRepository.cs",
+              "RelativeToolTip": "..\\Infrastructure\\Persistence\\Repositories\\OrderRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-06T03:40:00.274Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-09T04:54:59.198Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InfrastructureServiceRegistration.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
-              "RelativeToolTip": "..\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T08:07:58.817Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-09T08:10:39.447Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ConfigurationExtensions.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\ConfigurationExtensions.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure\\DI\\ConfigurationExtensions.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\ConfigurationExtensions.cs",
-              "RelativeToolTip": "..\\Infrastructure\\DI\\ConfigurationExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T08:41:47.362Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 13,
               "Title": "ServiceRegistrationExtensions.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\ServiceRegistrationExtensions.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure\\DI\\ServiceRegistrationExtensions.cs",
               "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\ServiceRegistrationExtensions.cs",
               "RelativeToolTip": "..\\Infrastructure\\DI\\ServiceRegistrationExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABGAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwA4AAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T08:06:24.479Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-09T08:06:24.479Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 20,
               "Title": "AuthRepository.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\Repositories\\AuthRepository.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure\\Persistence\\Repositories\\AuthRepository.cs",
@@ -313,19 +472,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "INotificationService.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Services\\INotificationService.cs",
-              "RelativeDocumentMoniker": "..\\Application\\Abstractions\\Services\\INotificationService.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Services\\INotificationService.cs",
-              "RelativeToolTip": "..\\Application\\Abstractions\\Services\\INotificationService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T23:29:54.882Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 29,
               "Title": "IRepository.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Repositories\\Common\\IRepository.cs",
               "RelativeDocumentMoniker": "..\\Application\\Abstractions\\Repositories\\Common\\IRepository.cs",
@@ -337,7 +484,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 23,
               "Title": "AuthService.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Service\\AuthService.cs",
               "RelativeDocumentMoniker": "..\\Application\\Service\\AuthService.cs",
@@ -349,19 +496,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "INotificationHub.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
-              "RelativeDocumentMoniker": "..\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
-              "RelativeToolTip": "..\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T07:05:52.939Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 22,
               "Title": "README.md",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\SignalR\\README.md",
               "RelativeDocumentMoniker": "..\\Application\\Abstractions\\SignalR\\README.md",
@@ -373,19 +508,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "NotificationHub.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\NotificationHub.cs",
-              "RelativeDocumentMoniker": "Controllers\\NotificationHub.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\NotificationHub.cs",
-              "RelativeToolTip": "Controllers\\NotificationHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T08:37:12.475Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "OrderService.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Service\\OrderService.cs",
               "RelativeDocumentMoniker": "..\\Application\\Service\\OrderService.cs",
@@ -397,19 +520,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "NotificationService.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Service\\NotificationService.cs",
-              "RelativeDocumentMoniker": "..\\Application\\Service\\NotificationService.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Application\\Service\\NotificationService.cs",
-              "RelativeToolTip": "..\\Application\\Service\\NotificationService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T06:58:57.896Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 24,
               "Title": "CurrentUserService.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Service\\CurrentUserService.cs",
               "RelativeDocumentMoniker": "..\\Application\\Service\\CurrentUserService.cs",
@@ -421,7 +532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 25,
               "Title": "PaymentExpiryCheckerService.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\BackgroundServices\\PaymentExpiryCheckerService.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure\\BackgroundServices\\PaymentExpiryCheckerService.cs",
@@ -433,7 +544,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 26,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure\\Persistence\\UnitOfWork.cs",
@@ -445,7 +556,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 27,
               "Title": "IUnitOfWork.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Common\\IUnitOfWork.cs",
               "RelativeDocumentMoniker": "..\\Application\\Abstractions\\Common\\IUnitOfWork.cs",
@@ -457,7 +568,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 30,
               "Title": "IProductRepository.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Repositories\\IProductRepository.cs",
               "RelativeDocumentMoniker": "..\\Application\\Abstractions\\Repositories\\IProductRepository.cs",
@@ -469,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 28,
               "Title": "IOrderRepository.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Repositories\\IOrderRepository.cs",
               "RelativeDocumentMoniker": "..\\Application\\Abstractions\\Repositories\\IOrderRepository.cs",
@@ -481,19 +592,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "OutboxPublisherService.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Messaging\\OutboxPublisherService.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure\\Messaging\\OutboxPublisherService.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Messaging\\OutboxPublisherService.cs",
-              "RelativeToolTip": "..\\Infrastructure\\Messaging\\OutboxPublisherService.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAawDsAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T21:30:41.277Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 31,
               "Title": "IAuthRepository.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Repositories\\IAuthRepository.cs",
               "RelativeDocumentMoniker": "..\\Application\\Abstractions\\Repositories\\IAuthRepository.cs",
@@ -505,7 +604,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 32,
               "Title": "Repository.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\Repositories\\Common\\Repository.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure\\Persistence\\Repositories\\Common\\Repository.cs",
@@ -517,19 +616,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\DatabaseContext\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure\\Persistence\\DatabaseContext\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\DatabaseContext\\ApplicationDbContext.cs",
-              "RelativeToolTip": "..\\Infrastructure\\Persistence\\DatabaseContext\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T04:41:15.348Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 38,
               "Title": "ProductCreatedDomainEventHandler.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\EventHandlers\\ProductCreatedDomainEventHandler.cs",
               "RelativeDocumentMoniker": "..\\Application\\EventHandlers\\ProductCreatedDomainEventHandler.cs",
@@ -541,7 +628,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 37,
               "Title": "OrderItem.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Items\\OrderItem.cs",
               "RelativeDocumentMoniker": "..\\Domain\\Items\\OrderItem.cs",
@@ -553,7 +640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 35,
               "Title": "BaseEvent.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Common\\BaseEvent.cs",
               "RelativeDocumentMoniker": "..\\Domain\\Common\\BaseEvent.cs",
@@ -565,7 +652,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 36,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Common\\BaseEntity.cs",
               "RelativeDocumentMoniker": "..\\Domain\\Common\\BaseEntity.cs",
@@ -577,7 +664,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 34,
               "Title": "OrderCreatedDomainEvent.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Events\\Order\\OrderCreatedDomainEvent.cs",
               "RelativeDocumentMoniker": "..\\Domain\\Events\\Order\\OrderCreatedDomainEvent.cs",
@@ -589,7 +676,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 33,
               "Title": "OrderCreatedDomainEventHandler.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\EventHandlers\\OrderCreatedDomainEventHandler.cs",
               "RelativeDocumentMoniker": "..\\Application\\EventHandlers\\OrderCreatedDomainEventHandler.cs",
@@ -601,7 +688,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 41,
               "Title": "ProductCreatedIntegrationEvent.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Shared\\Contracts\\IntegrationEvents\\Product\\ProductCreatedIntegrationEvent.cs",
               "RelativeDocumentMoniker": "..\\Shared\\Contracts\\IntegrationEvents\\Product\\ProductCreatedIntegrationEvent.cs",
@@ -613,7 +700,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 42,
               "Title": "ProductCreatedConsumer.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Worker\\Consumers\\Product\\ProductCreatedConsumer.cs",
               "RelativeDocumentMoniker": "..\\Worker\\Consumers\\Product\\ProductCreatedConsumer.cs",
@@ -625,7 +712,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 40,
               "Title": "ProductCreatedDomainEvent.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Events\\Product\\ProductCreatedDomainEvent.cs",
               "RelativeDocumentMoniker": "..\\Domain\\Events\\Product\\ProductCreatedDomainEvent.cs",
@@ -637,7 +724,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 39,
               "Title": "MassTransitConfig.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Messaging\\MassTransitConfig.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure\\Messaging\\MassTransitConfig.cs",
@@ -649,7 +736,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 45,
               "Title": "TConsumer.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Worker\\Consumers\\Common\\TConsumer.cs",
               "RelativeDocumentMoniker": "..\\Worker\\Consumers\\Common\\TConsumer.cs",
@@ -661,7 +748,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 43,
               "Title": "Result.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Shared\\Common\\Result.cs",
               "RelativeDocumentMoniker": "..\\Shared\\Common\\Result.cs",
@@ -673,19 +760,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ProductsController.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "Controllers\\ProductsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAewBcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T04:21:22.166Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 46,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Services\\IAuthService.cs",
               "RelativeDocumentMoniker": "..\\Application\\Abstractions\\Services\\IAuthService.cs",
@@ -697,7 +772,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 47,
               "Title": "ProductRequestValidator.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Validators\\ProductRequestValidator.cs",
               "RelativeDocumentMoniker": "..\\Application\\Validators\\ProductRequestValidator.cs",
@@ -709,7 +784,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 44,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Worker\\Program.cs",
               "RelativeDocumentMoniker": "..\\Worker\\Program.cs",
@@ -721,7 +796,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 51,
               "Title": "RedisCacheService.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Cache\\RedisCacheService.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure\\Cache\\RedisCacheService.cs",
@@ -733,7 +808,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 50,
               "Title": "IRedisCacheService.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Infrastructure\\IRedisCacheService.cs",
               "RelativeDocumentMoniker": "..\\Application\\Abstractions\\Infrastructure\\IRedisCacheService.cs",
@@ -745,7 +820,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 48,
               "Title": "LoginRequestValidator.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Validators\\LoginRequestValidator.cs",
               "RelativeDocumentMoniker": "..\\Application\\Validators\\LoginRequestValidator.cs",
@@ -757,7 +832,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 49,
               "Title": "JwtProvider.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\JWT\\JwtProvider.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure\\Persistence\\JWT\\JwtProvider.cs",
@@ -769,19 +844,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Entities\\Identity\\User.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\Entities\\Identity\\User.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Entities\\Identity\\User.cs",
-              "RelativeToolTip": "..\\Domain\\Entities\\Identity\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T22:57:28.385Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 53,
               "Title": "IOrderService.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Services\\IOrderService.cs",
               "RelativeDocumentMoniker": "..\\Application\\Abstractions\\Services\\IOrderService.cs",
@@ -793,7 +856,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 54,
               "Title": "IProductService.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Services\\IProductService.cs",
               "RelativeDocumentMoniker": "..\\Application\\Abstractions\\Services\\IProductService.cs",
@@ -805,7 +868,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 52,
               "Title": "IApplicationDbContext.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Infrastructure\\IApplicationDbContext.cs",
               "RelativeDocumentMoniker": "..\\Application\\Abstractions\\Infrastructure\\IApplicationDbContext.cs",
@@ -817,7 +880,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 55,
               "Title": "ProductRequest.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Contracts\\Product\\ProductRequest.cs",
               "RelativeDocumentMoniker": "..\\Application\\Contracts\\Product\\ProductRequest.cs",
@@ -829,7 +892,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 56,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Worker\\appsettings.json",
               "RelativeDocumentMoniker": "..\\Worker\\appsettings.json",
@@ -841,7 +904,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 57,
               "Title": "appsettings.Shared.json",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Shared\\appsettings.Shared.json",
               "RelativeDocumentMoniker": "..\\Shared\\appsettings.Shared.json",
@@ -853,7 +916,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 58,
               "Title": "Product.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Entities\\Identity\\Product.cs",
               "RelativeDocumentMoniker": "..\\Domain\\Entities\\Identity\\Product.cs",

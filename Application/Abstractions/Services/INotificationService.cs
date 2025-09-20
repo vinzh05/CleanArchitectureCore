@@ -1,13 +1,16 @@
+using Application.Contracts.Notification;
+using Shared.Common;
 using System.Threading.Tasks;
 
 namespace Application.Abstractions.Services
 {
     public interface INotificationService
     {
-        Task SendNotificationAsync(string message);
-        Task SendToSpecificClientAsync(string connectionId, string message);
-        Task SendToAdminGroupAsync(string message);
-        Task SendToUserAsync(string userId, string message);
-        Task BroadcastNotificationAsync(string message);
+        Task<Result<string>> SendNotificationAsync(string message);
+        Task<Result<string>> SendToSpecificClientAsync(string connectionId, string message);
+        Task<Result<string>> SendToAdminGroupAsync(string message);
+        Task<Result<string>> SendToUserAsync(string userId, string message);
+        Task<Result<string>> BroadcastNotificationAsync(string message);
+        Task<Result<string>> SendBulkNotificationAsync(BulkNotificationRequest request);
     }
 }

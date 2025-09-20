@@ -91,3 +91,4 @@ D:\GitHub\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\CleanArch
 D:\GitHub\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\CleanArchitectureCore.genruntimeconfig.cache
 D:\GitHub\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\ref\CleanArchitectureCore.dll
 D:\GitHub\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\GitHub\CleanArchitectureCore\CleanArchitectureCore\obj\Debug\net9.0\swae.build.ex.cache
