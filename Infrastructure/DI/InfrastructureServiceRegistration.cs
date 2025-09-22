@@ -1,26 +1,29 @@
 ﻿using Application.Abstractions.Common;
 using Application.Abstractions.Infrastructure;
 using Application.Abstractions.Repositories;
+using Application.Abstractions.SignalR;
 using Ecom.Infrastructure.Messaging;
 using Ecom.Infrastructure.Outbox;
 using Ecom.Infrastructure.Persistence;
 using Infrastructure.Cache;
+using Infrastructure.Middlewares;
 using Infrastructure.Persistence.DatabaseContext;
 using Infrastructure.Persistence.JWT;
 using Infrastructure.Persistence.Repositories;
 using Infrastructure.Persistence.Repositories.Common;
 using Infrastructure.Search;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using Nest;
 using StackExchange.Redis;
 using System;
 using System.Text;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Application.Abstractions.SignalR;
+using System.Threading.RateLimiting;
 
 namespace Infrastructure.DI
 {
@@ -28,10 +31,16 @@ namespace Infrastructure.DI
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config, bool addOutboxPublisher = true)
         {
+            // Database + Repositories + Caching + JWT
             services.AddDatabase(config)
-                    .AddRepositories()
+                    .AddSearch(config)
                     .AddCaching(config)
-                    .AddJwtAuthentication(config);
+                    .AddJwtAuthentication(config)
+                    .AddRepositories()
+                    .AddMiddlewares();
+
+            // MediatR registration
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(InfrastructureServiceRegistration).Assembly));
 
             // MassTransit publisher (WebApi) registration
             MassTransitConfig.AddMassTransitPublisher(services, config);
@@ -42,26 +51,35 @@ namespace Infrastructure.DI
             return services;
         }
 
+        #region Database
         public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration config)
         {
             services.AddDbContext<ApplicationDbContext>(opts => opts.UseNpgsql(config.GetConnectionString("DefaultConnection")));
             return services;
         }
 
+        #endregion
+
+        #region Repositories
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            services.AddScoped(typeof(Application.Abstractions.Repositories.Common.IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             return services;
         }
+        #endregion
 
+        #region Caching
         public static IServiceCollection AddCaching(this IServiceCollection services, IConfiguration config)
         {
-            services.AddSingleton<IConnectionMultiplexer>(sp => ConnectionMultiplexer.Connect(config["Redis:Configuration"] ?? "localhost:6379"));
+            var redisConfig = config.GetConnectionString("Redis") ?? "localhost:6379";
+            services.AddSingleton<IConnectionMultiplexer>(sp => ConnectionMultiplexer.Connect(redisConfig));
             services.AddSingleton<IRedisCacheService, RedisCacheService>();
             return services;
         }
+        #endregion
 
+        #region Search
         public static IServiceCollection AddSearch(this IServiceCollection services, IConfiguration config)
         {
             var settings = new ConnectionSettings(new Uri(config["Elastic:Url"] ?? "http://elasticsearch:9200")).DefaultIndex("products");
@@ -69,7 +87,9 @@ namespace Infrastructure.DI
             services.AddSingleton<ElasticService>();
             return services;
         }
+        #endregion
 
+        #region JWT Authentication
         public static IServiceCollection AddJwtAuthentication(this IServiceCollection services, IConfiguration config)
         {
             var jwtSettings = config.GetSection("Jwt");
@@ -97,5 +117,56 @@ namespace Infrastructure.DI
 
             return services;
         }
+        #endregion
+
+        #region Middlewares & Other Services
+        public static IServiceCollection AddMiddlewares(this IServiceCollection services)
+        {
+            services.AddScoped<ExceptionHandlingMiddleware>();
+            services.AddScoped<ValidationMiddleware>();
+            services.AddScoped<RequestLoggingMiddleware>();
+            services.AddScoped<PerformanceMiddleware>();
+            services.AddScoped<CorrelationIdMiddleware>();
+            services.AddScoped<SecurityHeadersMiddleware>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", policy =>
+                    policy.AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
+            });
+
+            services.AddResponseCompression();
+            services.AddResponseCaching();
+            services.AddHealthChecks();
+
+            return services;
+        }
+        #endregion
+
+        #region Setup Rate Limiting (Placeholder)
+        public static IServiceCollection RateLimit(this IServiceCollection services, IConfiguration config)
+        {
+            services.AddRateLimiter(options =>
+            {
+                options.AddPolicy("PerIpPolicy", context =>
+                {
+                    var ip = context.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+                    return RateLimitPartition.GetFixedWindowLimiter(
+                        partitionKey: ip,
+                        factory: _ => new FixedWindowRateLimiterOptions
+                        {
+                            PermitLimit = 100,
+                            Window = TimeSpan.FromMinutes(1),
+                            QueueLimit = 0,
+                            QueueProcessingOrder = QueueProcessingOrder.OldestFirst
+                        });
+                });
+            });
+
+            return services;
+        }
+        #endregion
     }
 }

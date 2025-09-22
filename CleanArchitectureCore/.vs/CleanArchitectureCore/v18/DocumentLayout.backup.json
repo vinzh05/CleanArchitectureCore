@@ -3,6 +3,19 @@
   "WorkspaceRootPath": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\di\\infrastructureserviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\di\\configurationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\messaging\\outboxpublisherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|solutionrelative:controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,13 +31,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\controllers\\notificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|solutionrelative:controllers\\notificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\messaging\\outboxpublisherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\signalr\\notificationhubadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -47,12 +53,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\di\\serviceregistrationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\di\\infrastructureserviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\di\\configurationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -192,7 +192,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -208,46 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "NotificationController.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\NotificationController.cs",
-              "RelativeDocumentMoniker": "Controllers\\NotificationController.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\NotificationController.cs",
-              "RelativeToolTip": "Controllers\\NotificationController.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAIAxwCoAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T18:46:14.309Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "NotificationService.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Service\\NotificationService.cs",
-              "RelativeDocumentMoniker": "..\\Application\\Service\\NotificationService.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Application\\Service\\NotificationService.cs",
-              "RelativeToolTip": "..\\Application\\Service\\NotificationService.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T06:58:57.896Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "INotificationHub.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
-              "RelativeDocumentMoniker": "..\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
-              "RelativeToolTip": "..\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T07:05:52.939Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "NotificationHub.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\NotificationHub.cs",
               "RelativeDocumentMoniker": "Controllers\\NotificationHub.cs",
@@ -255,12 +216,11 @@
               "RelativeToolTip": "Controllers\\NotificationHub.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T08:37:12.475Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-09T08:37:12.475Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "INotificationService.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\Services\\INotificationService.cs",
               "RelativeDocumentMoniker": "..\\Application\\Abstractions\\Services\\INotificationService.cs",
@@ -268,25 +228,24 @@
               "RelativeToolTip": "..\\Application\\Abstractions\\Services\\INotificationService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T23:29:54.882Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T23:29:54.882Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAD4vz8AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-09T08:39:44.183Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "OutboxPublisherService.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Messaging\\OutboxPublisherService.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure\\Messaging\\OutboxPublisherService.cs",
@@ -294,12 +253,11 @@
               "RelativeToolTip": "..\\Infrastructure\\Messaging\\OutboxPublisherService.cs",
               "ViewState": "AgIAAFwAAAAAAAAAAAApwGoAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T21:30:41.277Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T21:30:41.277Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "BulkNotificationRequest.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Contracts\\Notification\\BulkNotificationRequest.cs",
               "RelativeDocumentMoniker": "..\\Application\\Contracts\\Notification\\BulkNotificationRequest.cs",
@@ -307,12 +265,73 @@
               "RelativeToolTip": "..\\Application\\Contracts\\Notification\\BulkNotificationRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T07:59:57.868Z",
+              "WhenOpened": "2025-09-20T07:59:57.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InfrastructureServiceRegistration.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
+              "RelativeToolTip": "..\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAApwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-09T08:07:58.817Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
+              "Title": "ConfigurationExtensions.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\ConfigurationExtensions.cs",
+              "RelativeDocumentMoniker": "..\\Infrastructure\\DI\\ConfigurationExtensions.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\ConfigurationExtensions.cs",
+              "RelativeToolTip": "..\\Infrastructure\\DI\\ConfigurationExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-09T08:41:47.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "INotificationHub.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
+              "RelativeToolTip": "..\\Application\\Abstractions\\SignalR\\INotificationHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T07:05:52.939Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NotificationService.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Service\\NotificationService.cs",
+              "RelativeDocumentMoniker": "..\\Application\\Service\\NotificationService.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Application\\Service\\NotificationService.cs",
+              "RelativeToolTip": "..\\Application\\Service\\NotificationService.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T06:58:57.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NotificationController.cs",
+              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\NotificationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NotificationController.cs",
+              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\NotificationController.cs",
+              "RelativeToolTip": "Controllers\\NotificationController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAIAxwCoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T18:46:14.309Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "INotificationHubContext.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Application\\Abstractions\\SignalR\\INotificationHubContext.cs",
               "RelativeDocumentMoniker": "..\\Application\\Abstractions\\SignalR\\INotificationHubContext.cs",
@@ -320,12 +339,11 @@
               "RelativeToolTip": "..\\Application\\Abstractions\\SignalR\\INotificationHubContext.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAqwA4AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T08:11:46.104Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-20T08:11:46.104Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "NotificationHubAdapter.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\SignalR\\NotificationHubAdapter.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure\\SignalR\\NotificationHubAdapter.cs",
@@ -333,12 +351,11 @@
               "RelativeToolTip": "..\\Infrastructure\\SignalR\\NotificationHubAdapter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T08:12:44.929Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-20T08:12:44.929Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductsController.cs",
@@ -346,12 +363,11 @@
               "RelativeToolTip": "Controllers\\ProductsController.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAABkAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T04:21:22.166Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-25T04:21:22.166Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Persistence\\DatabaseContext\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure\\Persistence\\DatabaseContext\\ApplicationDbContext.cs",
@@ -359,12 +375,11 @@
               "RelativeToolTip": "..\\Infrastructure\\Persistence\\DatabaseContext\\ApplicationDbContext.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAqwAwAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T04:41:15.348Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-09T04:41:15.348Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Entities\\Identity\\User.cs",
               "RelativeDocumentMoniker": "..\\Domain\\Entities\\Identity\\User.cs",
@@ -373,18 +388,6 @@
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-04T22:57:28.385Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ConfigurationExtensions.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\ConfigurationExtensions.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure\\DI\\ConfigurationExtensions.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\ConfigurationExtensions.cs",
-              "RelativeToolTip": "..\\Infrastructure\\DI\\ConfigurationExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T08:41:47.362Z"
             },
             {
               "$type": "Document",
@@ -397,18 +400,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-08-09T08:10:39.447Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "InfrastructureServiceRegistration.cs",
-              "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
-              "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
-              "RelativeToolTip": "..\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T08:07:58.817Z"
             },
             {
               "$type": "Document",
@@ -448,7 +439,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "ServiceRegistrationExtensions.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\ServiceRegistrationExtensions.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure\\DI\\ServiceRegistrationExtensions.cs",
