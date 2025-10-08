@@ -87,4 +87,4 @@ D:\GitHub\CleanArchitectureCore\Worker\obj\Debug\net9.0\refint\Worker.dll
 D:\GitHub\CleanArchitectureCore\Worker\obj\Debug\net9.0\Worker.pdb
 D:\GitHub\CleanArchitectureCore\Worker\obj\Debug\net9.0\Worker.genruntimeconfig.cache
 D:\GitHub\CleanArchitectureCore\Worker\obj\Debug\net9.0\ref\Worker.dll
-D:\GitHub\CleanArchitectureCore\Worker\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\GitHub\CleanArchitectureCore\Worker\obj\Debug\net9.0\swae.build.ex.cache

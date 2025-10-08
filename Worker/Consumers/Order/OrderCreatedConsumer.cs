@@ -1,49 +1,71 @@
-using Infrastructure.Consumers.Common;
+using Infrastructure.Messaging.Consumers;
 using MassTransit;
+using Microsoft.Extensions.Logging;
 using Shared.IntegrationEvents.Contracts.Order;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Consumers.Order
 {
     /// <summary>
-    /// Consumer cho OrderCreatedIntegrationEvent từ RabbitMQ qua MassTransit.
-    /// Xử lý event khi đơn hàng được tạo, đồng bộ dữ liệu.
+    /// Consumer for OrderCreatedIntegrationEvent.
+    /// Processes new orders, syncs with external systems, and updates inventory.
     /// </summary>
-    public class OrderCreatedConsumer : IConsumer<OrderCreatedIntegrationEvent>
+    public class OrderCreatedConsumer : BaseConsumer<OrderCreatedIntegrationEvent>
     {
-        private readonly ILogger<OrderCreatedConsumer> _logger;
+        public OrderCreatedConsumer(ILogger<OrderCreatedConsumer> logger) : base(logger) { }
 
-        public OrderCreatedConsumer(ILogger<OrderCreatedConsumer> logger)
+        protected override async Task ProcessMessageAsync(ConsumeContext<OrderCreatedIntegrationEvent> context)
         {
-            _logger = logger;
+            var message = context.Message;
+            
+            Logger.LogInformation(
+                "Processing order | OrderId={OrderId}, OrderNumber={OrderNumber}, Total={Total:C}, Items={ItemCount}",
+                message.OrderId,
+                message.OrderNumber,
+                message.TotalPrice,
+                message.Items.Count);
+
+            // TODO: Implement business logic
+            // - Sync with external systems (ERP, WMS, etc.)
+            // - Update inventory
+            // - Trigger notifications
+            // - Update analytics/reporting
+            // - Process payment
+            // - Send confirmation email
+
+            await Task.CompletedTask;
         }
 
-        /// <summary>
-        /// Xử lý message OrderCreatedIntegrationEvent từ RabbitMQ.
-        /// Log và xử lý đồng bộ nếu cần.
-        /// </summary>
-        public async Task Consume(ConsumeContext<OrderCreatedIntegrationEvent> context)
+        protected override Task<MessageValidationResult> ValidateMessageAsync(
+            ConsumeContext<OrderCreatedIntegrationEvent> context)
         {
-            var msg = context.Message;
-            _logger.LogInformation("Processing OrderCreatedIntegrationEvent for Order ID: {Id}, OrderNumber: {Number}, Items: {ItemCount}",
-                msg.OrderId, msg.OrderNumber, msg.Items.Count);
+            var message = context.Message;
+            var errors = new List<string>();
 
-            try
+            if (message.OrderId == Guid.Empty)
             {
-                // Logic xử lý (e.g., sync với external system, update inventory)
-                foreach (var item in msg.Items)
-                {
-                    _logger.LogInformation("Item: Product {ProductId}, Quantity {Quantity}, Price {Price}",
-                        item.ProductId, item.Quantity, item.Price);
-                }
+                errors.Add("OrderId is required");
+            }
 
-                _logger.LogInformation("Order {Id} processed successfully", msg.OrderId);
-            }
-            catch (Exception ex)
+            if (string.IsNullOrWhiteSpace(message.OrderNumber))
             {
-                _logger.LogError(ex, "Error processing OrderCreatedIntegrationEvent for Order ID: {Id}", msg.OrderId);
-                throw;
+                errors.Add("Order number is required");
             }
+
+            if (message.TotalPrice < 0)
+            {
+                errors.Add("Total price must be non-negative");
+            }
+
+            if (message.Items == null || !message.Items.Any())
+            {
+                errors.Add("Order must have at least one item");
+            }
+
+            var result = errors.Any()
+                ? MessageValidationResult.Invalid(errors.ToArray())
+                : MessageValidationResult.Valid();
+
+            return Task.FromResult(result);
         }
     }
 }

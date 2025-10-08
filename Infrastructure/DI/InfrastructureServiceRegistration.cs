@@ -2,10 +2,9 @@
 using Application.Abstractions.Infrastructure;
 using Application.Abstractions.Repositories;
 using Application.Abstractions.SignalR;
-using Ecom.Infrastructure.Messaging;
-using Ecom.Infrastructure.Outbox;
 using Ecom.Infrastructure.Persistence;
 using Infrastructure.Cache;
+using Infrastructure.Messaging.Extensions;
 using Infrastructure.Middlewares;
 using Infrastructure.Persistence.DatabaseContext;
 using Infrastructure.Persistence.JWT;
@@ -20,6 +19,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Nest;
+using Shared.IntegrationEvents.Contracts;
 using StackExchange.Redis;
 using System;
 using System.Text;
@@ -29,7 +29,10 @@ namespace Infrastructure.DI
 {
     public static class InfrastructureServiceRegistration
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config, bool addOutboxPublisher = true)
+        public static IServiceCollection AddInfrastructure(
+            this IServiceCollection services,
+            IConfiguration config,
+            bool addOutboxPublisher = false)
         {
             // Database + Repositories + Caching + JWT
             services.AddDatabase(config)
@@ -42,11 +45,22 @@ namespace Infrastructure.DI
             // MediatR registration
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(InfrastructureServiceRegistration).Assembly));
 
-            // MassTransit publisher (WebApi) registration
-            MassTransitConfig.AddMassTransitPublisher(services, config);
+            // RabbitMQ Publisher registration (for WebApi)
+            services.AddRabbitMqPublisher(config);
 
-            // Register Outbox publisher hosted service optionally
-            if (addOutboxPublisher) services.AddHostedService<OutboxPublisherService>();
+            // Register integration event types for outbox deserialization
+            services.RegisterIntegrationEvents(
+                typeof(Shared.IntegrationEvents.Contracts.Product.ProductCreatedIntegrationEvent).Assembly,
+                type => type.Name.EndsWith("IntegrationEvent"));
+
+            // Register Outbox publisher hosted service if needed
+            if (addOutboxPublisher)
+            {
+                services.AddOutboxPublisher(config, registry =>
+                {
+                    // Additional type registrations can be done here
+                });
+            }
 
             return services;
         }

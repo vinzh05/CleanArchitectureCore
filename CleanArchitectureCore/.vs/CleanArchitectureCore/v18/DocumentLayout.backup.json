@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\di\\infrastructureserviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\di\\infrastructureserviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|d:\\github\\cleanarchitecturecore\\cleanarchitecturecore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{486FB277-BC3C-48B5-8DE8-CCBC3FE5580A}|CleanArchitectureCore.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4C9C5EBC-7A8F-4EA4-A3FC-2B86EA6F8A19}|..\\Infrastructure\\Infrastructure.csproj|d:\\github\\cleanarchitecturecore\\infrastructure\\di\\configurationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -192,7 +192,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -232,13 +232,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAD4vz8AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAD4vxkAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-09T08:39:44.183Z",
               "EditorCaption": ""
@@ -269,13 +269,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "InfrastructureServiceRegistration.cs",
               "DocumentMoniker": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
               "RelativeDocumentMoniker": "..\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
               "ToolTip": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
               "RelativeToolTip": "..\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAApwDEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAAAB0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-09T08:07:58.817Z",
               "EditorCaption": ""
@@ -290,8 +290,7 @@
               "RelativeToolTip": "..\\Infrastructure\\DI\\ConfigurationExtensions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T08:41:47.362Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-09T08:41:47.362Z"
             },
             {
               "$type": "Document",

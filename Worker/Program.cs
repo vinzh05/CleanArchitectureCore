@@ -1,10 +1,8 @@
-
-using Ecom.Infrastructure.DI;
-using Ecom.Infrastructure.Messaging;
+using Infrastructure.Consumers.Hikvision;
+using Infrastructure.Consumers.Order;
 using Infrastructure.Consumers.Product;
-using MassTransit;
-using Application.Abstractions.Service; // Thêm để register IProductService
-using Application.Service; // Thêm để register ProductService
+using Infrastructure.DI;
+using Infrastructure.Messaging.Extensions;
 
 namespace Worker
 {
@@ -18,23 +16,21 @@ namespace Worker
                 {
                     var config = ctx.Configuration;
 
+                    // Infrastructure: Database, Repositories, Caching, JWT
+                    // Enable Outbox Publisher for this worker
                     services.AddInfrastructure(config, addOutboxPublisher: true);
 
-                    // Register Application services
-                    services.AddScoped<IProductService, ProductService>();
-
-                    // Register consumers in worker assembly
-                    services.AddMassTransit(x =>
+                    // Register RabbitMQ consumers
+                    services.AddRabbitMqConsumer(config, (cfg, settings) =>
                     {
-                        x.AddConsumer<ProductCreatedConsumer>();
-                    });
-
-                    // Configure MassTransit consumer endpoints based on config and map consumers per exchange key
-                    MassTransitConfig.AddMassTransitConsumers(services, config, (context, endpoint, key) =>
-                    {
-                        if (key == "ProductCreated")
-                            endpoint.ConfigureConsumer<ProductCreatedConsumer>(context);
-                        // add other mapping rules as needed
+                        // Register all consumers
+                        cfg.AddConsumer<ProductCreatedConsumer>();
+                        cfg.AddConsumer<OrderCreatedConsumer>();
+                        cfg.AddConsumer<AccessControlConsumer>();
+                        cfg.AddConsumer<DeviceStatusChangedConsumer>();
+                        cfg.AddConsumer<AlarmTriggeredConsumer>();
+                        cfg.AddConsumer<PersonSyncedConsumer>();
+                        cfg.AddConsumer<DoorOpenedConsumer>();
                     });
                 })
                 .Build();
