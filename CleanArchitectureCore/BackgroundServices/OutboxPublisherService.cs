@@ -12,7 +12,7 @@ using System.Diagnostics;
 using System.Text.Json;
 using System.Threading.Tasks.Dataflow;
 
-namespace Infrastructure.Messaging.Outbox
+namespace CleanArchitectureCore.BackgroundServices
 {
     /// <summary>
     /// Enhanced outbox publisher with circuit breaker, idempotency, and better error handling.

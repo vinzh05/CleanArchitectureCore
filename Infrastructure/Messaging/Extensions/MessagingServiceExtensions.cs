@@ -1,6 +1,5 @@
 using Infrastructure.Messaging.Abstractions;
 using Infrastructure.Messaging.Configuration;
-using Infrastructure.Messaging.Outbox;
 using Infrastructure.Messaging.Setup;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
@@ -167,8 +166,8 @@ namespace Infrastructure.Messaging.Extensions
                 configureTypeRegistry(registry);
             }
 
-            // Register hosted service
-            services.AddHostedService<OutboxPublisherService>();
+            // Note: OutboxPublisherService is now registered in the Web API layer (Program.cs)
+            // as per Clean Architecture principles - BackgroundServices belong to the presentation layer
 
             return services;
         }

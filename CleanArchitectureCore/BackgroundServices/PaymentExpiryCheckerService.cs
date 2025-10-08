@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Services
+namespace CleanArchitectureCore.BackgroundServices
 {
     /// <summary>
     /// BackgroundService để check và fail payments quá hạn mỗi 30 giây.

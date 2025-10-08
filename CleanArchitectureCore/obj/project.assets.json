@@ -4346,11 +4346,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\CleanArchitectureCore.csproj",
+      "projectUniqueName": "d:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\CleanArchitectureCore.csproj",
       "projectName": "CleanArchitectureCore",
-      "projectPath": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\CleanArchitectureCore.csproj",
+      "projectPath": "d:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\CleanArchitectureCore.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\obj\\",
+      "outputPath": "d:\\GitHub\\CleanArchitectureCore\\CleanArchitectureCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4373,11 +4373,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\GitHub\\CleanArchitectureCore\\Application\\Application.csproj": {
-              "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Application\\Application.csproj"
+            "d:\\GitHub\\CleanArchitectureCore\\Application\\Application.csproj": {
+              "projectPath": "d:\\GitHub\\CleanArchitectureCore\\Application\\Application.csproj"
             },
-            "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj"
+            "d:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "d:\\GitHub\\CleanArchitectureCore\\Infrastructure\\Infrastructure.csproj"
             },
             "D:\\GitHub\\CleanArchitectureCore\\Shared\\Shared.csproj": {
               "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Shared\\Shared.csproj"

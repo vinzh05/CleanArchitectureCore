@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj": {}
+    "d:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj": {
+    "d:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj",
+        "projectUniqueName": "d:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj",
+        "projectPath": "d:\\GitHub\\CleanArchitectureCore\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\CleanArchitectureCore\\Domain\\obj\\",
+        "outputPath": "d:\\GitHub\\CleanArchitectureCore\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

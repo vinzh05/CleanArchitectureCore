@@ -231,8 +231,7 @@
               "RelativeToolTip": "..\\Application\\EventHandlers\\Hikvision\\AlarmTriggeredDomainEventHandler.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAiwCUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-08T02:35:59.119Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-08T02:35:59.119Z"
             },
             {
               "$type": "Document",
@@ -304,8 +303,7 @@
               "RelativeToolTip": "..\\Infrastructure\\DI\\InfrastructureServiceRegistration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T08:07:58.817Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-09T08:07:58.817Z"
             },
             {
               "$type": "Document",
@@ -689,8 +687,7 @@
               "RelativeToolTip": "..\\Domain\\Events\\Order\\OrderCreatedDomainEvent.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T08:08:11.37Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-09T08:08:11.37Z"
             },
             {
               "$type": "Document",
@@ -702,8 +699,7 @@
               "RelativeToolTip": "..\\Application\\EventHandlers\\OrderCreatedDomainEventHandler.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAgwCMAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T03:13:09.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-09T03:13:09.704Z"
             },
             {
               "$type": "Document",
@@ -715,8 +711,7 @@
               "RelativeToolTip": "..\\Shared\\Contracts\\IntegrationEvents\\Product\\ProductCreatedIntegrationEvent.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T23:40:29.352Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T23:40:29.352Z"
             },
             {
               "$type": "Document",
@@ -776,8 +771,7 @@
               "RelativeToolTip": "..\\Shared\\Common\\Result.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T23:29:36.395Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T23:29:36.395Z"
             },
             {
               "$type": "Document",

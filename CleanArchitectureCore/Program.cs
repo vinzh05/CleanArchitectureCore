@@ -27,6 +27,10 @@ namespace CleanArchitectureCore
             builder.Services.AddApplicationServices();
             builder.Services.AddHttpContextAccessor();
 
+            // Đăng ký BackgroundServices
+            builder.Services.AddHostedService<BackgroundServices.PaymentExpiryCheckerService>();
+            builder.Services.AddHostedService<BackgroundServices.OutboxPublisherService>();
+
             //SignalR
             builder.Services.AddSignalR();
             builder.Services.AddScoped<INotificationHubContext, NotificationHub>();
